@@ -502,7 +502,7 @@ video {
     <div class="hero-copy">
       <span class="kicker">
         <span class="kicker-line"></span>
-        New Portfolio · Coming 2026
+        New Portfolio · Coming 2025
       </span>
 
       <h1 class="headline">
@@ -613,11 +613,24 @@ video {
   const input = document.getElementById('emailInput');
   const msg = document.getElementById('successMsg');
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (input.value) {
-      form.style.display = 'none';
-      msg.style.display = 'block';
+      try {
+        const res = await fetch('https://formspree.io/f/mbdzlgyp', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: input.value })
+        });
+        if (res.ok) {
+          form.style.display = 'none';
+          msg.style.display = 'block';
+        } else {
+          alert('Something went wrong. Please try again.');
+        }
+      } catch (err) {
+        alert('Something went wrong. Please try again.');
+      }
     }
   });
 </script>
