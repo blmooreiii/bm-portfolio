@@ -256,13 +256,8 @@ nav {
   animation: fadeDown 0.6s ease calc(var(--hero-fade-start) + 0.2s) forwards;
 }
 .nav-logo { display: flex; align-items: center; gap: 0.75rem; }
-.nav-mark {
-  width: 36px; height: 36px; border-radius: 10px;
-  background: var(--eggplant);
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.72rem; font-weight: 700; color: #fff; letter-spacing: 0.04em;
-}
+.nav-mark-custom { display: flex; align-items: center; justify-content: center; }
+
 .nav-name { font-size: 0.88rem; font-weight: 600; color: var(--text); }
 .nav-links { display: flex; gap: 2rem; list-style: none; }
 .nav-links a {
@@ -342,7 +337,7 @@ nav {
 .hero-year {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase;
-  color: rgba(245,241,232,0.3);
+  color: var(--gold);
 }
 
 .hero-headline {
@@ -671,6 +666,7 @@ footer { background: var(--eggplant); padding: 1.5rem 2.5rem; }
 
   /* Nav */
   nav { padding: 0 1.5rem; }
+  nav .nav-logo { width: 100%; justify-content: space-between; }
   nav .nav-links { display: none; }
 
   /* Sections padding */
@@ -748,109 +744,31 @@ footer { background: var(--eggplant); padding: 1.5rem 2.5rem; }
 </head>
 <body>
 
-<!-- ══ ELEVATOR DOOR INTRO ══ -->
-<div id="intro">
-  <div class="intro-name">
-    Bertram L. Moore, III
-    <span>Portfolio · MMXXVI</span>
-  </div>
-  <div class="door-left"></div>
-  <div class="door-right"></div>
-</div>
+<!-- Intro sequence omitted from interior pages -->
 
 <!-- ══ NAV ══ -->
 <nav>
   <div class="nav-logo">
-    <div class="nav-mark">BM</div>
-    <span class="nav-name">Bertram L. Moore III</span>
+    <div class="nav-mark-custom">
+      <img src="bm-logo.png" alt="Bertram L. Moore III Logo" style="height:36px; width:auto; display:block;" />
+    </div>
   </div>
   <ul class="nav-links">
-    <li><a href="index.html" class="active">Home</a></li>
-    <li><a href="work.html">Work</a></li>
+    <li><a href="home.html">Home</a></li>
+    <li><a href="work.html" class="active">Work</a></li>
     <li><a href="about.html">About</a></li>
+    <li><a href="creative.html">Creative</a></li>
     <li><a href="https://bdotmdev.wordpress.com" target="_blank" rel="noreferrer" aria-label="Visit WordPress blog - opens in a new tab">Blog</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Let's Work</a>
 </nav>
 
-<!-- ══ HERO ══ -->
-<section class="hero">
-  <!-- LEFT — dark cinematic -->
-  <div class="hero-left">
-    <div class="hero-grain"></div>
-    <div class="hero-top">
-      <span class="hero-year">MMXXVI · Charleston, SC</span>
-    </div>
-    <div class="hero-headline">
-      <div class="hero-kicker">Manager of PMs · UX Thinker · Systems Builder</div>
-      <h1 class="hero-title">
-        Structure.<br/>
-        <span class="stroke">Story.</span>
-        <span class="gold">Systems.</span>
-      </h1>
-      <p class="hero-sub">Creating the structure for products, teams, and stories to work. PMO leadership, UX thinking, and building things that don't feel corporate.</p>
-    </div>
-    <div class="hero-bottom">
-      <div class="hero-ctas">
-        <a href="work.html" class="btn-egg">View Work</a>
-        <a href="about.html" class="btn-light">About →</a>
-      </div>
-      <span class="hero-scroll">Scroll to explore</span>
-    </div>
-  </div>
-
-  <!-- RIGHT — cream -->
-  <div class="hero-right">
-    <div class="hero-right-label">Currently · Education · Creative</div>
-    <div class="hero-cards">
-      <div class="status-card">
-        <div class="status-icon si-egg">🏢</div>
-        <div>
-          <div class="status-label">Currently</div>
-          <div class="status-value">Manager of PMs @ Johnson & Johnson Insurance</div>
-        </div>
-      </div>
-      <div class="status-card">
-        <div class="status-icon si-blue">🎓</div>
-        <div>
-          <div class="status-label">Education</div>
-          <div class="status-value">Graphic Information Technology · Arizona State University</div>
-        </div>
-      </div>
-      <div class="status-card">
-        <div class="status-icon si-gold">🎙️</div>
-        <div>
-          <div class="status-label">Creative</div>
-          <div class="status-value">Project Anubis · Creative Venture</div>
-        </div>
-      </div>
-    </div>
-    <div class="hero-right-footer">
-      <div class="hero-tags">
-        <span class="hero-tag">Charleston, SC</span>
-        <span class="hero-tag">J&J Insurance</span>
-        <span class="hero-tag">GIT · ASU</span>
-        <span class="hero-tag">Anubis</span>
-      </div>
-      <div class="hero-social">
-        <a href="https://www.linkedin.com/in/bertram-moore/" target="_blank" rel="noreferrer" aria-label="LinkedIn profile - opens in a new tab">LinkedIn</a>
-        <a href="case-anubis.html" target="_blank" rel="noreferrer" aria-label="Anubis Case Study">Anubis Case Study</a>
-        <a href="mailto:bertram@bertrammoore.com">Email</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ PAGE CONTENT (Concept 4 flow) ══ -->
-<div class="page-content">
-
-  <!-- DIVIDER -->
-  <div style="width:100%;border-top:2px solid rgba(26,21,20,0.15);background:var(--bg-warm);padding:0;margin:0;">
+  <!-- WORK TEASER HEADER -->
+  <div style="width:100%;border-top:2px solid rgba(26,21,20,0.15);background:var(--bg-warm);padding:0;margin:0;margin-top: 4rem;">
     <div style="max-width:1100px;margin:0 auto;padding:1.5rem 2.5rem;display:flex;align-items:center;gap:1rem;">
-      <span style="font-family:'Space Grotesk',sans-serif;font-size:0.58rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--muted);">Selected Work</span>
+      <span style="font-family:'Space Grotesk',sans-serif;font-size:0.58rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--muted);">All Selected Works</span>
       <span style="flex:1;height:1px;background:var(--rule);"></span>
-      <span style="font-family:'Space Grotesk',sans-serif;font-size:0.58rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--muted);">2024 — 2026</span>
-      <a href="work.html" style="font-family:'Space Grotesk',sans-serif;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--eggplant);transition:opacity 0.2s;">View All →</a>
+      <span style="font-family:'Space Grotesk',sans-serif;font-size:0.58rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--muted);">Archive</span>
     </div>
   </div>
 
@@ -858,8 +776,8 @@ footer { background: var(--eggplant); padding: 1.5rem 2.5rem; }
   <section class="projects">
 
     <div class="project-feat">
-      <div class="project-feat-img">
-        <span class="project-feat-img-label">Project Image</span>
+      <div class="project-feat-img" style="padding:0; overflow:hidden;">
+          <img src="hero-melo.jpg" alt="Stay Melo Campaign Hero" style="width:100%; height:100%; object-fit:cover; display:block;" />
       </div>
       <div class="project-feat-body">
         <div>
@@ -869,8 +787,8 @@ footer { background: var(--eggplant); padding: 1.5rem 2.5rem; }
             <span class="pill">Video</span>
             <span class="pill egg">Creative Direction</span>
           </div>
-          <h3 class="project-title-lg">Then & Now.<br/>Stay Me7o.</h3>
-          <p class="project-desc">A cinematic photo + video campaign reimagining "It's Gotta Be The Shoes" through the Jordan 12 Melo colorway. Full creative direction, storyboarding, and production.</p>
+          <h3 class="project-title-lg">Stay Me7o:<br/>It's Gotta Be The Shoes.</h3>
+          <p class="project-desc">A modern sportswear campaign centered on the Air Jordan 12 “Melo” sneaker, reimagining the storytelling style of classic Nike and Jordan Brand advertising for a new generation.</p>
         </div>
         <a href="case-melo.html" class="project-link">View Case Study</a>
       </div>
@@ -878,99 +796,27 @@ footer { background: var(--eggplant); padding: 1.5rem 2.5rem; }
 
     <div class="projects-row">
       <div class="project-card">
-        <div class="card-img"><span>Project Image</span></div>
+        <div class="card-img" style="padding:0; overflow:hidden;">
+            <img src="hero-anubis.png" alt="Anubis and Bastet scene" style="width:100%; height:100%; object-fit:cover; display:block;" />
+        </div>
         <div class="card-body">
-          <h3 class="card-title">Project Taurus</h3>
-          <p class="card-desc">Barcode-driven sneaker catalog with insights and user stories. UX, Product, React Native.</p>
+          <h3 class="card-title">Project Anubis</h3>
+          <p class="card-desc">Civic Project... details coming soon.</p>
           <a href="case-anubis.html" class="project-link">View Case Study</a>
         </div>
       </div>
       <div class="project-card">
-        <div class="card-img"><span>Project Image</span></div>
+        <div class="card-img" style="padding:0; overflow:hidden;">
+            <img src="hero-taurus.jpg" alt="Jordan 7 Sneakers Thumbnail" style="width:100%; height:100%; object-fit:cover; display:block;" />
+        </div>
         <div class="card-body">
-          <h3 class="card-title">PMO Governance in Motion</h3>
-          <p class="card-desc">Pod structure, QA flow, stakeholder comms, and reporting cadence at J&J Insurance.</p>
+          <h3 class="card-title">Project Taurus</h3>
+          <p class="card-desc">A personal sneaker collection management app designed and built for collectors to catalog and manage their inventory.</p>
           <a href="case-taurus.html" class="project-link">View Case Study</a>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- ABOUT -->
-  <div class="about">
-    <div class="about-inner">
-      <div class="about-portrait"><span>Portrait</span></div>
-      <div class="about-content">
-        <p class="about-kicker">About</p>
-        <h2 class="about-hl">Structure, story,<br/>and systems.</h2>
-        <p class="about-p">I sit at the intersection of project management, UX design, and creative direction. From leading PM pods at Johnson & Johnson to building sneaker apps and sports media brands — my work is about creating systems that feel intuitive, not corporate.</p>
-        <p class="about-p">Completing my Graphic Information Technology degree at ASU, focusing on front-end development and digital experiences that respect both the user and the culture.</p>
-        <div class="about-facts">
-          <div class="about-fact">
-            <div class="fact-num">8+</div>
-            <div class="fact-label">Years in Project Management</div>
-          </div>
-          <div class="about-fact">
-            <div class="fact-num">3</div>
-            <div class="fact-label">Active Case Studies</div>
-          </div>
-          <div class="about-fact">
-            <div class="fact-num">1</div>
-            <div class="fact-label">Project Anubis</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SKILLS -->
-  <section class="skills">
-    <div class="skills-inner">
-      <p class="eyebrow" style="margin-bottom:0.4rem">Capabilities</p>
-      <h2 class="section-title">What I Do</h2>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="skill-icon">⬡</div>
-          <div class="skill-title">Project & Program Management</div>
-          <div class="skill-desc">Pods, PMO structure, RAID/RACI, Smartsheet, sprints, and delivery execution.</div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">◎</div>
-          <div class="skill-title">UX & Product Thinking</div>
-          <div class="skill-desc">Wireframes, journey maps, usability tests, flows, and user-centered design.</div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">⌗</div>
-          <div class="skill-title">Front-End Development</div>
-          <div class="skill-desc">HTML, CSS, JavaScript, React, React Native, and component systems.</div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">◈</div>
-          <div class="skill-title">Content & Brand Story</div>
-          <div class="skill-desc">Creative direction and sports culture storytelling through ATCS and Project Anubis.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- BLOG — WordPress Feed -->
-  <div class="blog">
-    <div class="blog-inner">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Journal</p>
-          <h2 class="section-title">Notes From the Build.</h2>
-        </div>
-        <a href="https://bdotmdev.wordpress.com" target="_blank" rel="noreferrer" aria-label="View all posts on WordPress - opens in a new tab" class="see-all">View All Posts →</a>
-      </div>
-      <div class="blog-grid" id="blogGrid">
-        <div class="blog-card loading"><div class="blog-title">Loading...</div></div>
-        <div class="blog-card loading"><div class="blog-title">Loading...</div></div>
-        <div class="blog-card loading"><div class="blog-title">Loading...</div></div>
-      </div>
-    </div>
-  </div>
 
   <!-- CONTACT -->
   <section id="contact" class="contact">
@@ -995,10 +841,14 @@ footer { background: var(--eggplant); padding: 1.5rem 2.5rem; }
       </form>
     </div>
   </section>
+
+  <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
       <div class="footer-left">
-        <div class="nav-mark" style="width:32px;height:32px;font-size:0.68rem">BM</div>
+        <div class="nav-mark-custom" style="display:inline-block; margin-right:12px; opacity:0.8; filter:brightness(0) invert(1);">
+          <img src="bm-logo.png" alt="Bertram L. Moore III Logo" style="height:28px; width:auto; display:block;" />
+        </div>
         <span class="footer-copy">© 2026 Bertram L. Moore III. All rights reserved.</span>
       </div>
       <div class="footer-links">
@@ -1013,17 +863,6 @@ footer { background: var(--eggplant); padding: 1.5rem 2.5rem; }
 </div>
 
 <script>
-  // Remove intro from DOM after animation completes so it doesn't block scrolling
-  const intro = document.getElementById('intro');
-  if (intro) {
-    intro.addEventListener('animationend', (e) => {
-      // Ensure we're targeting the exit animation of the intro wrapper itself
-      if (e.animationName === 'introExit') {
-        intro.remove();
-      }
-    });
-  }
-
   // ── WordPress Feed ──
   async function loadBlogPosts() {
     const grid = document.getElementById('blogGrid');

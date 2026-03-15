@@ -219,7 +219,28 @@ body {
 }
 .about-p { font-size: 0.92rem; color: var(--muted); line-height: 1.8; margin-bottom: 0.85rem; max-width: 540px; }
 .about-facts { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-top: 2rem; }
-.about-fact { background: var(--surface); border-radius: 14px; padding: 1rem 1.1rem; border: 1px solid var(--rule); }
+.about-fact { background: var(--surface); border-radius: 14px; padding: 1rem 1.1rem; border: 1px solid var(--rule); transition: all 0.3s ease; position: relative; z-index: 1; } .about-fact:hover { transform: translateY(-5px); border-color: var(--blue); box-shadow: 0 0 20px rgba(30,149,178,0.2); animation: pulseGlow 2s infinite; } @keyframes pulseGlow { 0% { box-shadow: 0 0 10px rgba(30,149,178,0.2); } 50% { box-shadow: 0 0 25px rgba(30,149,178,0.5), 0 0 10px rgba(30,149,178,0.3); } 100% { box-shadow: 0 0 10px rgba(30,149,178,0.2); } }
+
+/* ── CONTACT ── */
+.contact { background: var(--bg); border-top: 1px solid var(--rule); padding: 6rem 2.5rem; }
+.contact-inner { max-width: 600px; margin: 0 auto; text-align: center; }
+.contact-form { margin-top: 3rem; display: grid; gap: 1.25rem; text-align: left; }
+.form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+.form-label { font-family: 'Space Grotesk', sans-serif; font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+.form-input, .form-textarea {
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 12px;
+  padding: 1rem 1.25rem; font-family: 'Inter', sans-serif; font-size: 0.9rem; color: var(--text);
+  transition: all 0.2s;
+}
+.form-input:focus, .form-textarea:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 4px var(--blue-lt); }
+.form-textarea { min-height: 150px; resize: vertical; }
+.btn-submit {
+  font-family: 'Space Grotesk', sans-serif; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+  background: var(--eggplant); color: #fff; border: none; padding: 1.1rem; border-radius: 12px;
+  cursor: pointer; transition: all 0.2s; margin-top: 0.5rem;
+}
+.btn-submit:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(97,64,81,0.25); }
+
 .fact-num { font-family: "Space Grotesk", sans-serif; font-size: 1.8rem; font-weight: 600; color: var(--eggplant); line-height: 1; margin-bottom: 0.2rem; }
 .fact-label { font-size: 0.78rem; color: var(--muted); line-height: 1.4; }
 
@@ -256,6 +277,7 @@ nav {
   animation: fadeDown 0.6s ease calc(var(--hero-fade-start) + 0.2s) forwards;
 }
 .nav-logo { display: flex; align-items: center; gap: 0.75rem; }
+.nav-mark-custom { display: flex; align-items: center; justify-content: center; }
 .nav-mark {
   width: 36px; height: 36px; border-radius: 10px;
   background: var(--eggplant);
@@ -308,8 +330,8 @@ nav {
   content: '';
   position: absolute; bottom: -20%; left: -10%;
   width: 70%; height: 70%;
-  background: radial-gradient(circle, rgba(97,64,81,0.4), transparent 70%);
-  filter: blur(60px); pointer-events: none;
+  background: radial-gradient(circle, rgba(145,96,122,0.65), transparent 70%);
+  filter: blur(80px); pointer-events: none;
 }
 .hero-left::after {
   content: '';
@@ -342,7 +364,7 @@ nav {
 .hero-year {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase;
-  color: rgba(245,241,232,0.3);
+  color: var(--gold);
 }
 
 .hero-headline {
@@ -671,6 +693,7 @@ footer { background: var(--eggplant); padding: 1.5rem 2.5rem; }
 
   /* Nav */
   nav { padding: 0 1.5rem; }
+  nav .nav-logo { width: 100%; justify-content: space-between; }
   nav .nav-links { display: none; }
 
   /* Sections padding */
@@ -719,257 +742,115 @@ footer { background: var(--eggplant); padding: 1.5rem 2.5rem; }
 }
 .blog-date { color: var(--muted); }
 .blog-read { color: var(--eggplant); }
-@keyframes pulseGlow {
-  0% { box-shadow: 0 0 10px rgba(30,149,178,0.2); }
-  50% { box-shadow: 0 0 25px rgba(30,149,178,0.5), 0 0 10px rgba(30,149,178,0.3); }
-  100% { box-shadow: 0 0 10px rgba(30,149,178,0.2); }
-}
-
-/* ── CONTACT ── */
-.contact { background: var(--bg); border-top: 1px solid var(--rule); padding: 6rem 2.5rem; }
-.contact-inner { max-width: 600px; margin: 0 auto; text-align: center; }
-.contact-form { margin-top: 3rem; display: grid; gap: 1.25rem; text-align: left; }
-.form-group { display: flex; flex-direction: column; gap: 0.5rem; }
-.form-label { font-family: 'Space Grotesk', sans-serif; font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
-.form-input, .form-textarea {
-  background: var(--surface); border: 1px solid var(--rule); border-radius: 12px;
-  padding: 1rem 1.25rem; font-family: 'Inter', sans-serif; font-size: 0.9rem; color: var(--text);
-  transition: all 0.2s;
-}
-.form-input:focus, .form-textarea:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 4px var(--blue-lt); }
-.form-textarea { min-height: 150px; resize: vertical; }
-.btn-submit {
-  font-family: 'Space Grotesk', sans-serif; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
-  background: var(--eggplant); color: #fff; border: none; padding: 1.1rem; border-radius: 12px;
-  cursor: pointer; transition: all 0.2s; margin-top: 0.5rem;
-}
-.btn-submit:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(97,64,81,0.25); }
 </style>
 </head>
 <body>
 
-<!-- ══ ELEVATOR DOOR INTRO ══ -->
-<div id="intro">
-  <div class="intro-name">
-    Bertram L. Moore, III
-    <span>Portfolio · MMXXVI</span>
-  </div>
-  <div class="door-left"></div>
-  <div class="door-right"></div>
-</div>
+<!-- Intro sequence omitted from interior pages -->
 
 <!-- ══ NAV ══ -->
 <nav>
   <div class="nav-logo">
-    <div class="nav-mark">BM</div>
-    <span class="nav-name">Bertram L. Moore III</span>
+    <div class="nav-mark-custom">
+      <img src="bm-logo.png" alt="Bertram L. Moore III Logo" style="height:36px; width:auto; display:block;" />
+    </div>
   </div>
   <ul class="nav-links">
-    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="home.html">Home</a></li>
     <li><a href="work.html">Work</a></li>
     <li><a href="about.html">About</a></li>
+    <li><a href="creative.html">Creative</a></li>
     <li><a href="https://bdotmdev.wordpress.com" target="_blank" rel="noreferrer" aria-label="Visit WordPress blog - opens in a new tab">Blog</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Let's Work</a>
 </nav>
 
-<!-- ══ HERO ══ -->
-<section class="hero">
-  <!-- LEFT — dark cinematic -->
-  <div class="hero-left">
-    <div class="hero-grain"></div>
-    <div class="hero-top">
-      <span class="hero-year">MMXXVI · Charleston, SC</span>
-    </div>
-    <div class="hero-headline">
-      <div class="hero-kicker">Manager of PMs · UX Thinker · Systems Builder</div>
-      <h1 class="hero-title">
-        Structure.<br/>
-        <span class="stroke">Story.</span>
-        <span class="gold">Systems.</span>
-      </h1>
-      <p class="hero-sub">Creating the structure for products, teams, and stories to work. PMO leadership, UX thinking, and building things that don't feel corporate.</p>
-    </div>
-    <div class="hero-bottom">
-      <div class="hero-ctas">
-        <a href="work.html" class="btn-egg">View Work</a>
-        <a href="about.html" class="btn-light">About →</a>
+  <!-- CASE STUDY HEADER -->
+  <div style="width:100%;border-top:2px solid rgba(26,21,20,0.15);background:var(--bg-warm);padding:0;margin:0;margin-top: 4rem;">
+    <div style="max-width:1100px;margin:0 auto;padding:3rem 2.5rem;display:flex;flex-direction:column;gap:1.5rem;">
+      <span style="font-family:'Space Grotesk',sans-serif;font-size:0.6rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--muted);">Case Study · Creative Direction</span>
+      <h1 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2.5rem, 5vw, 4rem);font-weight:700;letter-spacing:-0.03em;color:var(--text);line-height:1;">Then & Now.<br/>Stay Me7o.</h1>
+      
+      <div style="display:flex;gap:2rem;margin-top:1rem;padding-top:1.5rem;border-top:1px solid var(--rule);">
+        <div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.3rem;">Role</div>
+          <div style="font-size:0.85rem;color:var(--text);font-weight:500;">Creative Director</div>
+        </div>
+        <div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.3rem;">Client</div>
+          <div style="font-size:0.85rem;color:var(--text);font-weight:500;">Project Anubis</div>
+        </div>
+        <div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.3rem;">Year</div>
+          <div style="font-size:0.85rem;color:var(--text);font-weight:500;">2025</div>
+        </div>
       </div>
-      <span class="hero-scroll">Scroll to explore</span>
     </div>
   </div>
 
-  <!-- RIGHT — cream -->
-  <div class="hero-right">
-    <div class="hero-right-label">Currently · Education · Creative</div>
-    <div class="hero-cards">
-      <div class="status-card">
-        <div class="status-icon si-egg">🏢</div>
-        <div>
-          <div class="status-label">Currently</div>
-          <div class="status-value">Manager of PMs @ Johnson & Johnson Insurance</div>
-        </div>
+  <!-- HERO IMAGE -->
+  <div style="max-width:1100px;margin:3rem auto;padding:0 2.5rem;">
+      <div style="width:100%;height:600px;border-radius:20px;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+          <img src="hero-melo.jpg" alt="Carmelo Anthony on the court" style="width:100%;height:100%;object-fit:cover;display:block;" />
       </div>
-      <div class="status-card">
-        <div class="status-icon si-blue">🎓</div>
-        <div>
-          <div class="status-label">Education</div>
-          <div class="status-value">Graphic Information Technology · Arizona State University</div>
-        </div>
-      </div>
-      <div class="status-card">
-        <div class="status-icon si-gold">🎙️</div>
-        <div>
-          <div class="status-label">Creative</div>
-          <div class="status-value">Project Anubis · Creative Venture</div>
-        </div>
-      </div>
-    </div>
-    <div class="hero-right-footer">
-      <div class="hero-tags">
-        <span class="hero-tag">Charleston, SC</span>
-        <span class="hero-tag">J&J Insurance</span>
-        <span class="hero-tag">GIT · ASU</span>
-        <span class="hero-tag">Anubis</span>
-      </div>
-      <div class="hero-social">
-        <a href="https://www.linkedin.com/in/bertram-moore/" target="_blank" rel="noreferrer" aria-label="LinkedIn profile - opens in a new tab">LinkedIn</a>
-        <a href="case-anubis.html" target="_blank" rel="noreferrer" aria-label="Anubis Case Study">Anubis Case Study</a>
-        <a href="mailto:bertram@bertrammoore.com">Email</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ PAGE CONTENT (Concept 4 flow) ══ -->
-<div class="page-content">
-
-  <!-- DIVIDER -->
-  <div style="width:100%;border-top:2px solid rgba(26,21,20,0.15);background:var(--bg-warm);padding:0;margin:0;">
-    <div style="max-width:1100px;margin:0 auto;padding:1.5rem 2.5rem;display:flex;align-items:center;gap:1rem;">
-      <span style="font-family:'Space Grotesk',sans-serif;font-size:0.58rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--muted);">Selected Work</span>
-      <span style="flex:1;height:1px;background:var(--rule);"></span>
-      <span style="font-family:'Space Grotesk',sans-serif;font-size:0.58rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--muted);">2024 — 2026</span>
-      <a href="work.html" style="font-family:'Space Grotesk',sans-serif;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--eggplant);transition:opacity 0.2s;">View All →</a>
-    </div>
   </div>
 
-  <!-- PROJECTS -->
-  <section class="projects">
+  <!-- ARTICLE CONTENT -->
+  <article style="max-width:800px;margin:0 auto;padding:2rem 2.5rem 6rem;font-size:1rem;color:var(--text);line-height:1.8;">
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;letter-spacing:-0.02em;margin-bottom:1.5rem;margin-top:2rem;">Objective</h2>
+    <p style="margin-bottom:1.5rem;color:var(--muted);">The objective of this project was to develop a modern sportswear marketing campaign centered on the Air Jordan 12 “Melo” sneaker. The campaign reimagines the storytelling style of classic Nike and Jordan Brand advertising, particularly the iconic “It’s Gotta Be the Shoes” era.</p>
+    <p style="margin-bottom:1.5rem;color:var(--muted);">The work was created to demonstrate how contemporary visual storytelling can reconnect a retro sneaker release to the legacy of Carmelo Anthony while introducing that story to a new generation of sneaker consumers. The project specifically required producing one cinematic promotional video.</p>
+    
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;letter-spacing:-0.02em;margin-bottom:1.5rem;margin-top:3rem;">Synopsis</h2>
+    <p style="margin-bottom:1.5rem;color:var(--muted);">“Stay Me7o” explores the idea that Carmelo Anthony’s legacy is defined by authenticity and longevity. The campaign draws inspiration from early Jordan Brand storytelling, streetwear editorial photography, and modern sneaker culture marketing.</p>
+    <p style="margin-bottom:1.5rem;color:var(--muted);">Visually, the work references classic sports commercials where athletes are portrayed as both cultural icons and everyday people. The campaign blends cinematic lighting, close product shots, and lifestyle imagery to capture the feeling of legacy meeting the present moment.</p>
+    <p style="margin-bottom:1.5rem;color:var(--muted);">The narrative concept “Then & Now. Stay Me7o.” emphasizes how Melo’s influence continues across generations—from his early NBA career to his Hall of Fame recognition and enduring impact on sneaker culture.</p>
 
-    <div class="project-feat">
-      <div class="project-feat-img">
-        <span class="project-feat-img-label">Project Image</span>
-      </div>
-      <div class="project-feat-body">
-        <div>
-          <p class="project-num">Project 01 · Creative Direction</p>
-          <div class="project-pills">
-            <span class="pill">Photo</span>
-            <span class="pill">Video</span>
-            <span class="pill egg">Creative Direction</span>
-          </div>
-          <h3 class="project-title-lg">Then & Now.<br/>Stay Me7o.</h3>
-          <p class="project-desc">A cinematic photo + video campaign reimagining "It's Gotta Be The Shoes" through the Jordan 12 Melo colorway. Full creative direction, storyboarding, and production.</p>
-        </div>
-        <a href="case-melo.html" class="project-link">View Case Study</a>
-      </div>
+    <!-- CONTENT IMAGE PLACEHOLDER -->
+    <div style="width:100%;height:350px;background:var(--rule);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:3rem 0;">
+        <span style="font-family:'Space Grotesk',sans-serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);">Storyboard / Behind the scenes Image</span>
     </div>
 
-    <div class="projects-row">
-      <div class="project-card">
-        <div class="card-img"><span>Project Image</span></div>
-        <div class="card-body">
-          <h3 class="card-title">Project Taurus</h3>
-          <p class="card-desc">Barcode-driven sneaker catalog with insights and user stories. UX, Product, React Native.</p>
-          <a href="case-anubis.html" class="project-link">View Case Study</a>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="card-img"><span>Project Image</span></div>
-        <div class="card-body">
-          <h3 class="card-title">PMO Governance in Motion</h3>
-          <p class="card-desc">Pod structure, QA flow, stakeholder comms, and reporting cadence at J&J Insurance.</p>
-          <a href="case-taurus.html" class="project-link">View Case Study</a>
-        </div>
-      </div>
-    </div>
-  </section>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;letter-spacing:-0.02em;margin-bottom:1.5rem;margin-top:3rem;">Process</h2>
+    
+    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.2rem;font-weight:600;margin-bottom:0.5rem;color:var(--text);">1. Concept Development</h3>
+    <p style="margin-bottom:1.5rem;color:var(--muted);">The campaign concept was developed around Melo’s Hall of Fame induction and the cultural relevance of the Jordan 12 “Melo.” Research included studying previous Jordan Brand campaigns, sports advertising storytelling techniques, and contemporary sneaker marketing.</p>
+
+    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.2rem;font-weight:600;margin-bottom:0.5rem;color:var(--text);">2. Visual Direction</h3>
+    <p style="margin-bottom:0.5rem;color:var(--muted);">A visual language was created to combine:</p>
+    <ul style="margin-bottom:1rem;color:var(--muted);padding-left:1.5rem;">
+      <li>Cinematic sports storytelling</li>
+      <li>Editorial sneaker photography</li>
+      <li>Modern social media vertical video formats</li>
+    </ul>
+    <p style="margin-bottom:1.5rem;color:var(--muted);">Lighting, framing, and motion were designed to emphasize both the athlete’s legacy and the sneaker itself.</p>
+
+    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.2rem;font-weight:600;margin-bottom:0.5rem;color:var(--text);">3. Production</h3>
+    <p style="margin-bottom:0.5rem;color:var(--muted);">Production involved capturing both video and photography assets. Key deliverables included:</p>
+    <ul style="margin-bottom:1.5rem;color:var(--muted);padding-left:1.5rem;">
+      <li>Cinematic hero footage highlighting the sneaker and environment</li>
+      <li>Short vertical videos optimized for platforms like Instagram Reels and TikTok</li>
+    </ul>
+
+    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.2rem;font-weight:600;margin-bottom:0.5rem;color:var(--text);">4. Editing and Post-Production</h3>
+    <p style="margin-bottom:1.5rem;color:var(--muted);">Video footage was edited into a cinematic promotional piece supported by shorter vertical edits. Color grading, sound design, and pacing were used to emphasize mood and narrative storytelling. Photography was edited to create clean, high-impact visuals that could function as campaign imagery.</p>
+
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;letter-spacing:-0.02em;margin-bottom:1.5rem;margin-top:3rem;">Results</h2>
+    <p style="margin-bottom:0.5rem;color:var(--muted);">The final project produced a cohesive campaign concept that demonstrates how storytelling can elevate a sneaker release beyond simple product marketing. Deliverables included:</p>
+    <ul style="margin-bottom:1.5rem;color:var(--muted);padding-left:1.5rem;">
+      <li>One cinematic promotional video</li>
+      <li>Two vertical social media videos</li>
+    </ul>
+    <p style="margin-bottom:1.5rem;color:var(--muted);">The work demonstrates skills in creative direction, commercial photography, video production, and brand storytelling. The campaign also illustrates how legacy sports narratives can be adapted for modern digital platforms.</p>
+  </article>
+
+  <!-- NEXT PROJECT NAV -->
+  <div style="width:100%;border-top:1px solid var(--rule);padding:4rem 2.5rem;text-align:center;">
+      <span style="font-family:'Space Grotesk',sans-serif;font-size:0.58rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:1rem;">Next Project</span>
+      <a href="case-anubis.html" style="font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:600;letter-spacing:-0.02em;color:var(--eggplant);text-decoration:none;">Project Anubis Case Study →</a>
+  </div>
 
   <!-- ABOUT -->
-  <div class="about">
-    <div class="about-inner">
-      <div class="about-portrait"><span>Portrait</span></div>
-      <div class="about-content">
-        <p class="about-kicker">About</p>
-        <h2 class="about-hl">Structure, story,<br/>and systems.</h2>
-        <p class="about-p">I sit at the intersection of project management, UX design, and creative direction. From leading PM pods at Johnson & Johnson to building sneaker apps and sports media brands — my work is about creating systems that feel intuitive, not corporate.</p>
-        <p class="about-p">Completing my Graphic Information Technology degree at ASU, focusing on front-end development and digital experiences that respect both the user and the culture.</p>
-        <div class="about-facts">
-          <div class="about-fact">
-            <div class="fact-num">8+</div>
-            <div class="fact-label">Years in Project Management</div>
-          </div>
-          <div class="about-fact">
-            <div class="fact-num">3</div>
-            <div class="fact-label">Active Case Studies</div>
-          </div>
-          <div class="about-fact">
-            <div class="fact-num">1</div>
-            <div class="fact-label">Project Anubis</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SKILLS -->
-  <section class="skills">
-    <div class="skills-inner">
-      <p class="eyebrow" style="margin-bottom:0.4rem">Capabilities</p>
-      <h2 class="section-title">What I Do</h2>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="skill-icon">⬡</div>
-          <div class="skill-title">Project & Program Management</div>
-          <div class="skill-desc">Pods, PMO structure, RAID/RACI, Smartsheet, sprints, and delivery execution.</div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">◎</div>
-          <div class="skill-title">UX & Product Thinking</div>
-          <div class="skill-desc">Wireframes, journey maps, usability tests, flows, and user-centered design.</div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">⌗</div>
-          <div class="skill-title">Front-End Development</div>
-          <div class="skill-desc">HTML, CSS, JavaScript, React, React Native, and component systems.</div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">◈</div>
-          <div class="skill-title">Content & Brand Story</div>
-          <div class="skill-desc">Creative direction and sports culture storytelling through ATCS and Project Anubis.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- BLOG — WordPress Feed -->
-  <div class="blog">
-    <div class="blog-inner">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Journal</p>
-          <h2 class="section-title">Notes From the Build.</h2>
-        </div>
-        <a href="https://bdotmdev.wordpress.com" target="_blank" rel="noreferrer" aria-label="View all posts on WordPress - opens in a new tab" class="see-all">View All Posts →</a>
-      </div>
-      <div class="blog-grid" id="blogGrid">
-        <div class="blog-card loading"><div class="blog-title">Loading...</div></div>
-        <div class="blog-card loading"><div class="blog-title">Loading...</div></div>
-        <div class="blog-card loading"><div class="blog-title">Loading...</div></div>
-      </div>
-    </div>
   </div>
 
   <!-- CONTACT -->
@@ -998,7 +879,9 @@ footer { background: var(--eggplant); padding: 1.5rem 2.5rem; }
   <footer>
     <div class="footer-inner">
       <div class="footer-left">
-        <div class="nav-mark" style="width:32px;height:32px;font-size:0.68rem">BM</div>
+        <div class="nav-mark-custom" style="display:inline-block; margin-right:12px; opacity:0.8; filter:brightness(0) invert(1);">
+          <img src="bm-logo.png" alt="Bertram L. Moore III Logo" style="height:28px; width:auto; display:block;" />
+        </div>
         <span class="footer-copy">© 2026 Bertram L. Moore III. All rights reserved.</span>
       </div>
       <div class="footer-links">
@@ -1013,17 +896,6 @@ footer { background: var(--eggplant); padding: 1.5rem 2.5rem; }
 </div>
 
 <script>
-  // Remove intro from DOM after animation completes so it doesn't block scrolling
-  const intro = document.getElementById('intro');
-  if (intro) {
-    intro.addEventListener('animationend', (e) => {
-      // Ensure we're targeting the exit animation of the intro wrapper itself
-      if (e.animationName === 'introExit') {
-        intro.remove();
-      }
-    });
-  }
-
   // ── WordPress Feed ──
   async function loadBlogPosts() {
     const grid = document.getElementById('blogGrid');

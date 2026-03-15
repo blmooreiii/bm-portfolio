@@ -202,10 +202,12 @@ body {
   display: grid; grid-template-columns: 240px 1fr; gap: 5rem; align-items: start;
 }
 .about-portrait {
-  width: 200px; height: 200px; border-radius: 50%;
+  width: 240px; height: 240px; border-radius: 50%;
   background: var(--bg); border: 3px solid var(--eggplant);
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 8px 32px rgba(97,64,81,0.15);
+  overflow: hidden;
+  flex-shrink: 0;
 }
 .about-portrait span { font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
 .about-kicker {
@@ -219,9 +221,73 @@ body {
 }
 .about-p { font-size: 0.92rem; color: var(--muted); line-height: 1.8; margin-bottom: 0.85rem; max-width: 540px; }
 .about-facts { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-top: 2rem; }
-.about-fact { background: var(--surface); border-radius: 14px; padding: 1rem 1.1rem; border: 1px solid var(--rule); }
+.about-fact { 
+  background: var(--surface); 
+  border-radius: 14px; 
+  padding: 1rem 1.1rem; 
+  border: 1px solid var(--rule); 
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+.about-fact:hover {
+  transform: translateY(-5px);
+  border-color: var(--blue);
+  box-shadow: 0 0 20px rgba(30,149,178,0.2);
+  animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 10px rgba(30,149,178,0.2); }
+  50% { box-shadow: 0 0 25px rgba(30,149,178,0.5), 0 0 10px rgba(30,149,178,0.3); }
+  100% { box-shadow: 0 0 10px rgba(30,149,178,0.2); }
+}
+
+/* ── CONTACT ── */
+.contact { background: var(--bg); border-top: 1px solid var(--rule); padding: 6rem 2.5rem; }
+.contact-inner { max-width: 600px; margin: 0 auto; text-align: center; }
+.contact-form { margin-top: 3rem; display: grid; gap: 1.25rem; text-align: left; }
+.form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+.form-label { font-family: 'Space Grotesk', sans-serif; font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+.form-input, .form-textarea {
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 12px;
+  padding: 1rem 1.25rem; font-family: 'Inter', sans-serif; font-size: 0.9rem; color: var(--text);
+  transition: all 0.2s;
+}
+.form-input:focus, .form-textarea:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 4px var(--blue-lt); }
+.form-textarea { min-height: 150px; resize: vertical; }
+.btn-submit {
+  font-family: 'Space Grotesk', sans-serif; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+  background: var(--eggplant); color: #fff; border: none; padding: 1.1rem; border-radius: 12px;
+  cursor: pointer; transition: all 0.2s; margin-top: 0.5rem;
+}
+.btn-submit:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(97,64,81,0.25); }
+
 .fact-num { font-family: "Space Grotesk", sans-serif; font-size: 1.8rem; font-weight: 600; color: var(--eggplant); line-height: 1; margin-bottom: 0.2rem; }
 .fact-label { font-size: 0.78rem; color: var(--muted); line-height: 1.4; }
+
+/* ── EXPERIENCE SECTION ── */
+.experience { padding: 6rem 2.5rem; background: var(--bg); border-top: 1px solid var(--rule); }
+.experience-inner { max-width: 1100px; margin: 0 auto; }
+.experience-grid { display: grid; gap: 4rem; margin-top: 3rem; }
+.exp-item { display: grid; grid-template-columns: 200px 1fr; gap: 4rem; align-items: start; padding-bottom: 4rem; border-bottom: 1px solid var(--rule); }
+.exp-item:last-child { border-bottom: none; padding-bottom: 0; }
+.exp-meta { font-family: 'Space Grotesk', sans-serif; }
+.exp-date { font-size: 0.65rem; letter-spacing: 0.2em; color: var(--muted); margin-bottom: 0.5rem; }
+.exp-company { font-size: 0.95rem; font-weight: 600; color: var(--eggplant); }
+.exp-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 600; color: var(--text); margin-bottom: 1rem; letter-spacing: -0.01em; }
+.exp-desc { font-size: 0.92rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; max-width: 650px; }
+.exp-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.exp-pill { 
+  font-family: 'Space Grotesk', sans-serif; font-size: 0.62rem; letter-spacing: 0.12em; 
+  text-transform: uppercase; padding: 0.35rem 0.85rem; border-radius: 999px; 
+  background: var(--bg-warm); border: 1px solid var(--rule); color: var(--muted);
+}
+
+@media (max-width: 768px) {
+  .exp-item { grid-template-columns: 1fr; gap: 1rem; }
+  .experience { padding: 4rem 1.5rem; }
+}
 
 /* ── SKILLS ── */
 .skills { background: var(--eggplant); border-top: 1px solid rgba(97,64,81,0.2); border-bottom: 1px solid rgba(97,64,81,0.2); }
@@ -256,13 +322,8 @@ nav {
   animation: fadeDown 0.6s ease calc(var(--hero-fade-start) + 0.2s) forwards;
 }
 .nav-logo { display: flex; align-items: center; gap: 0.75rem; }
-.nav-mark {
-  width: 36px; height: 36px; border-radius: 10px;
-  background: var(--eggplant);
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.72rem; font-weight: 700; color: #fff; letter-spacing: 0.04em;
-}
+.nav-mark-custom { display: flex; align-items: center; justify-content: center; }
+
 .nav-name { font-size: 0.88rem; font-weight: 600; color: var(--text); }
 .nav-links { display: flex; gap: 2rem; list-style: none; }
 .nav-links a {
@@ -342,7 +403,7 @@ nav {
 .hero-year {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase;
-  color: rgba(245,241,232,0.3);
+  color: var(--gold);
 }
 
 .hero-headline {
@@ -671,6 +732,7 @@ footer { background: var(--eggplant); padding: 1.5rem 2.5rem; }
 
   /* Nav */
   nav { padding: 0 1.5rem; }
+  nav .nav-logo { width: 100%; justify-content: space-between; }
   nav .nav-links { display: none; }
 
   /* Sections padding */
@@ -719,209 +781,145 @@ footer { background: var(--eggplant); padding: 1.5rem 2.5rem; }
 }
 .blog-date { color: var(--muted); }
 .blog-read { color: var(--eggplant); }
-@keyframes pulseGlow {
-  0% { box-shadow: 0 0 10px rgba(30,149,178,0.2); }
-  50% { box-shadow: 0 0 25px rgba(30,149,178,0.5), 0 0 10px rgba(30,149,178,0.3); }
-  100% { box-shadow: 0 0 10px rgba(30,149,178,0.2); }
-}
-
-/* ── CONTACT ── */
-.contact { background: var(--bg); border-top: 1px solid var(--rule); padding: 6rem 2.5rem; }
-.contact-inner { max-width: 600px; margin: 0 auto; text-align: center; }
-.contact-form { margin-top: 3rem; display: grid; gap: 1.25rem; text-align: left; }
-.form-group { display: flex; flex-direction: column; gap: 0.5rem; }
-.form-label { font-family: 'Space Grotesk', sans-serif; font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
-.form-input, .form-textarea {
-  background: var(--surface); border: 1px solid var(--rule); border-radius: 12px;
-  padding: 1rem 1.25rem; font-family: 'Inter', sans-serif; font-size: 0.9rem; color: var(--text);
-  transition: all 0.2s;
-}
-.form-input:focus, .form-textarea:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 4px var(--blue-lt); }
-.form-textarea { min-height: 150px; resize: vertical; }
-.btn-submit {
-  font-family: 'Space Grotesk', sans-serif; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
-  background: var(--eggplant); color: #fff; border: none; padding: 1.1rem; border-radius: 12px;
-  cursor: pointer; transition: all 0.2s; margin-top: 0.5rem;
-}
-.btn-submit:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(97,64,81,0.25); }
 </style>
 </head>
 <body>
 
-<!-- ══ ELEVATOR DOOR INTRO ══ -->
-<div id="intro">
-  <div class="intro-name">
-    Bertram L. Moore, III
-    <span>Portfolio · MMXXVI</span>
-  </div>
-  <div class="door-left"></div>
-  <div class="door-right"></div>
-</div>
+<!-- Intro sequence omitted from interior pages -->
 
 <!-- ══ NAV ══ -->
 <nav>
   <div class="nav-logo">
-    <div class="nav-mark">BM</div>
-    <span class="nav-name">Bertram L. Moore III</span>
+    <div class="nav-mark-custom">
+      <img src="bm-logo.png" alt="Bertram L. Moore III Logo" style="height:36px; width:auto; display:block;" />
+    </div>
   </div>
   <ul class="nav-links">
-    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="home.html">Home</a></li>
     <li><a href="work.html">Work</a></li>
-    <li><a href="about.html">About</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="creative.html">Creative</a></li>
     <li><a href="https://bdotmdev.wordpress.com" target="_blank" rel="noreferrer" aria-label="Visit WordPress blog - opens in a new tab">Blog</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Let's Work</a>
 </nav>
 
-<!-- ══ HERO ══ -->
-<section class="hero">
-  <!-- LEFT — dark cinematic -->
-  <div class="hero-left">
-    <div class="hero-grain"></div>
-    <div class="hero-top">
-      <span class="hero-year">MMXXVI · Charleston, SC</span>
-    </div>
-    <div class="hero-headline">
-      <div class="hero-kicker">Manager of PMs · UX Thinker · Systems Builder</div>
-      <h1 class="hero-title">
-        Structure.<br/>
-        <span class="stroke">Story.</span>
-        <span class="gold">Systems.</span>
-      </h1>
-      <p class="hero-sub">Creating the structure for products, teams, and stories to work. PMO leadership, UX thinking, and building things that don't feel corporate.</p>
-    </div>
-    <div class="hero-bottom">
-      <div class="hero-ctas">
-        <a href="work.html" class="btn-egg">View Work</a>
-        <a href="about.html" class="btn-light">About →</a>
-      </div>
-      <span class="hero-scroll">Scroll to explore</span>
-    </div>
-  </div>
-
-  <!-- RIGHT — cream -->
-  <div class="hero-right">
-    <div class="hero-right-label">Currently · Education · Creative</div>
-    <div class="hero-cards">
-      <div class="status-card">
-        <div class="status-icon si-egg">🏢</div>
-        <div>
-          <div class="status-label">Currently</div>
-          <div class="status-value">Manager of PMs @ Johnson & Johnson Insurance</div>
-        </div>
-      </div>
-      <div class="status-card">
-        <div class="status-icon si-blue">🎓</div>
-        <div>
-          <div class="status-label">Education</div>
-          <div class="status-value">Graphic Information Technology · Arizona State University</div>
-        </div>
-      </div>
-      <div class="status-card">
-        <div class="status-icon si-gold">🎙️</div>
-        <div>
-          <div class="status-label">Creative</div>
-          <div class="status-value">Project Anubis · Creative Venture</div>
-        </div>
-      </div>
-    </div>
-    <div class="hero-right-footer">
-      <div class="hero-tags">
-        <span class="hero-tag">Charleston, SC</span>
-        <span class="hero-tag">J&J Insurance</span>
-        <span class="hero-tag">GIT · ASU</span>
-        <span class="hero-tag">Anubis</span>
-      </div>
-      <div class="hero-social">
-        <a href="https://www.linkedin.com/in/bertram-moore/" target="_blank" rel="noreferrer" aria-label="LinkedIn profile - opens in a new tab">LinkedIn</a>
-        <a href="case-anubis.html" target="_blank" rel="noreferrer" aria-label="Anubis Case Study">Anubis Case Study</a>
-        <a href="mailto:bertram@bertrammoore.com">Email</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ PAGE CONTENT (Concept 4 flow) ══ -->
-<div class="page-content">
-
-  <!-- DIVIDER -->
-  <div style="width:100%;border-top:2px solid rgba(26,21,20,0.15);background:var(--bg-warm);padding:0;margin:0;">
+  <!-- ABOUT HEADER (Removed Hero & Projects) -->
+  <div style="width:100%;border-top:2px solid rgba(26,21,20,0.15);background:var(--bg-warm);padding:0;margin:0;margin-top: 4rem;">
     <div style="max-width:1100px;margin:0 auto;padding:1.5rem 2.5rem;display:flex;align-items:center;gap:1rem;">
-      <span style="font-family:'Space Grotesk',sans-serif;font-size:0.58rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--muted);">Selected Work</span>
+      <span style="font-family:'Space Grotesk',sans-serif;font-size:0.58rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--muted);">Background</span>
       <span style="flex:1;height:1px;background:var(--rule);"></span>
-      <span style="font-family:'Space Grotesk',sans-serif;font-size:0.58rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--muted);">2024 — 2026</span>
-      <a href="work.html" style="font-family:'Space Grotesk',sans-serif;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--eggplant);transition:opacity 0.2s;">View All →</a>
+      <span style="font-family:'Space Grotesk',sans-serif;font-size:0.58rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--muted);">Details</span>
     </div>
   </div>
-
-  <!-- PROJECTS -->
-  <section class="projects">
-
-    <div class="project-feat">
-      <div class="project-feat-img">
-        <span class="project-feat-img-label">Project Image</span>
-      </div>
-      <div class="project-feat-body">
-        <div>
-          <p class="project-num">Project 01 · Creative Direction</p>
-          <div class="project-pills">
-            <span class="pill">Photo</span>
-            <span class="pill">Video</span>
-            <span class="pill egg">Creative Direction</span>
-          </div>
-          <h3 class="project-title-lg">Then & Now.<br/>Stay Me7o.</h3>
-          <p class="project-desc">A cinematic photo + video campaign reimagining "It's Gotta Be The Shoes" through the Jordan 12 Melo colorway. Full creative direction, storyboarding, and production.</p>
-        </div>
-        <a href="case-melo.html" class="project-link">View Case Study</a>
-      </div>
-    </div>
-
-    <div class="projects-row">
-      <div class="project-card">
-        <div class="card-img"><span>Project Image</span></div>
-        <div class="card-body">
-          <h3 class="card-title">Project Taurus</h3>
-          <p class="card-desc">Barcode-driven sneaker catalog with insights and user stories. UX, Product, React Native.</p>
-          <a href="case-anubis.html" class="project-link">View Case Study</a>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="card-img"><span>Project Image</span></div>
-        <div class="card-body">
-          <h3 class="card-title">PMO Governance in Motion</h3>
-          <p class="card-desc">Pod structure, QA flow, stakeholder comms, and reporting cadence at J&J Insurance.</p>
-          <a href="case-taurus.html" class="project-link">View Case Study</a>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ABOUT -->
   <div class="about">
     <div class="about-inner">
-      <div class="about-portrait"><span>Portrait</span></div>
+      <div class="about-portrait"><img src="portrait-bertram.jpg" alt="Portrait of Bertram L. Moore III" style="width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block;image-rendering:-webkit-optimize-contrast;transform:translateZ(0);-webkit-backface-visibility:hidden;backface-visibility:hidden;" /></div>
       <div class="about-content">
         <p class="about-kicker">About</p>
-        <h2 class="about-hl">Structure, story,<br/>and systems.</h2>
-        <p class="about-p">I sit at the intersection of project management, UX design, and creative direction. From leading PM pods at Johnson & Johnson to building sneaker apps and sports media brands — my work is about creating systems that feel intuitive, not corporate.</p>
-        <p class="about-p">Completing my Graphic Information Technology degree at ASU, focusing on front-end development and digital experiences that respect both the user and the culture.</p>
+        <h2 class="about-hl">When Product Thinking<br/>Meets Culture</h2>
+        <p class="about-p">Bertram L. Moore III is a developer, product thinker, and creative strategist focused on building tools that solve real-world problems. With a background in project and product management at a Fortune 15 company, he approaches technology with both structure and curiosity—bringing ideas from concept to launch with a balance of strategy, design, and execution.</p>
+        <p class="about-p">His work sits at the intersection of technology, culture, and community. Whether developing mobile apps, building digital platforms, or experimenting with new ideas, Bertram is driven by the belief that the best products come from understanding people first. From civic-minded technology projects to creative experiments, his goal is always the same: build things that matter.</p>
+        <p class="about-p">Outside of development, Bertram is a lifelong student of culture—especially sneakers, storytelling, and the subtle art of being fly. That influence shows up in everything he creates: thoughtful design, clean execution, and a respect for the details that make something stand out.</p>
         <div class="about-facts">
           <div class="about-fact">
             <div class="fact-num">8+</div>
             <div class="fact-label">Years in Project Management</div>
           </div>
           <div class="about-fact">
-            <div class="fact-num">3</div>
-            <div class="fact-label">Active Case Studies</div>
+            <div class="fact-num">4</div>
+            <div class="fact-label">Case Studies</div>
           </div>
           <div class="about-fact">
-            <div class="fact-num">1</div>
-            <div class="fact-label">Project Anubis</div>
+            <div class="fact-num">3</div>
+            <div class="fact-label">Products in Development</div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+
+  <!-- EXPERIENCE -->
+  <section class="experience">
+    <div class="experience-inner">
+      <p class="eyebrow" style="margin-bottom:0.4rem">Career & Education</p>
+      <h2 class="section-title">The Journey So Far</h2>
+      
+      <div class="experience-grid">
+        <!-- J&J -->
+        <div class="exp-item">
+          <div class="exp-meta">
+            <div class="exp-date">2022 — PRESENT</div>
+            <div class="exp-company">Johnson & Johnson Insurance</div>
+          </div>
+          <div class="exp-body">
+            <h3 class="exp-title">Manager of Project Managers</h3>
+            <p class="exp-desc">Leading a pod-based PM structure across multiple product teams. Own governance frameworks, delivery cadence, and RAID/RACI infrastructure built from the ground up.</p>
+            <div class="exp-pills">
+              <span class="exp-pill">PMO</span>
+              <span class="exp-pill">Governance</span>
+              <span class="exp-pill">Smartsheet</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ATCS -->
+        <div class="exp-item">
+          <div class="exp-meta">
+            <div class="exp-date">2025 — PRESENT</div>
+            <div class="exp-company">A Tribe Called Swish</div>
+          </div>
+          <div class="exp-body">
+            <h3 class="exp-title">Founder & Creative Director</h3>
+            <p class="exp-desc">Founded and built a sports media and culture brand at the intersection of basketball, sneakers, and storytelling. Content creation, brand identity, and creative direction.</p>
+            <div class="exp-pills">
+              <span class="exp-pill">Creative Direction</span>
+              <span class="exp-pill">Content Strategy</span>
+              <span class="exp-pill">Brand Building</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Verizon -->
+        <div class="exp-item">
+          <div class="exp-meta">
+            <div class="exp-date">2023 — 2025</div>
+            <div class="exp-company">Verizon</div>
+          </div>
+          <div class="exp-body">
+            <h3 class="exp-title">Sr. Manager Business Strategy & Product Manager</h3>
+            <p class="exp-desc">Led Fios Self-Serve launch (27% conversion lift) and Apple One Perk strategy (54% activation). Directed retail digital solutions and data-driven buying trend analytics.</p>
+            <div class="exp-pills">
+              <span class="exp-pill">Business Strategy</span>
+              <span class="exp-pill">Product Management</span>
+              <span class="exp-pill">Retail Innovation</span>
+              <span class="exp-pill">Data Analytics</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ASU -->
+        <div class="exp-item">
+          <div class="exp-meta">
+            <div class="exp-date">2023 — 2026</div>
+            <div class="exp-company">Arizona State University</div>
+          </div>
+          <div class="exp-body">
+            <h3 class="exp-title">B.S. Graphic Information Technology</h3>
+            <p class="exp-desc">Pursuing a degree in GIT with focus on full-stack development, UX design, and digital experiences. Applying coursework directly to real projects and client work.</p>
+            <div class="exp-pills">
+              <span class="exp-pill">Full Stack Dev</span>
+              <span class="exp-pill">UX Design</span>
+              <span class="exp-pill">Digital Media</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- SKILLS -->
   <section class="skills">
@@ -954,24 +952,6 @@ footer { background: var(--eggplant); padding: 1.5rem 2.5rem; }
   </section>
 
 
-  <!-- BLOG — WordPress Feed -->
-  <div class="blog">
-    <div class="blog-inner">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Journal</p>
-          <h2 class="section-title">Notes From the Build.</h2>
-        </div>
-        <a href="https://bdotmdev.wordpress.com" target="_blank" rel="noreferrer" aria-label="View all posts on WordPress - opens in a new tab" class="see-all">View All Posts →</a>
-      </div>
-      <div class="blog-grid" id="blogGrid">
-        <div class="blog-card loading"><div class="blog-title">Loading...</div></div>
-        <div class="blog-card loading"><div class="blog-title">Loading...</div></div>
-        <div class="blog-card loading"><div class="blog-title">Loading...</div></div>
-      </div>
-    </div>
-  </div>
-
   <!-- CONTACT -->
   <section id="contact" class="contact">
     <div class="contact-inner">
@@ -995,10 +975,14 @@ footer { background: var(--eggplant); padding: 1.5rem 2.5rem; }
       </form>
     </div>
   </section>
+
+  <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
       <div class="footer-left">
-        <div class="nav-mark" style="width:32px;height:32px;font-size:0.68rem">BM</div>
+        <div class="nav-mark-custom" style="display:inline-block; margin-right:12px; opacity:0.8; filter:brightness(0) invert(1);">
+          <img src="bm-logo.png" alt="Bertram L. Moore III Logo" style="height:28px; width:auto; display:block;" />
+        </div>
         <span class="footer-copy">© 2026 Bertram L. Moore III. All rights reserved.</span>
       </div>
       <div class="footer-links">
@@ -1013,17 +997,6 @@ footer { background: var(--eggplant); padding: 1.5rem 2.5rem; }
 </div>
 
 <script>
-  // Remove intro from DOM after animation completes so it doesn't block scrolling
-  const intro = document.getElementById('intro');
-  if (intro) {
-    intro.addEventListener('animationend', (e) => {
-      // Ensure we're targeting the exit animation of the intro wrapper itself
-      if (e.animationName === 'introExit') {
-        intro.remove();
-      }
-    });
-  }
-
   // ── WordPress Feed ──
   async function loadBlogPosts() {
     const grid = document.getElementById('blogGrid');
