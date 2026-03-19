@@ -261,7 +261,59 @@ body {
   background: var(--eggplant); color: #fff; border: none; padding: 1.1rem; border-radius: 12px;
   cursor: pointer; transition: all 0.2s; margin-top: 0.5rem;
 }
-.btn-submit:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(97,64,81,0.25); }
+    .btn-submit:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(97,64,81,0.25); }
+
+    /* ── MOBILE MENU ── */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      z-index: 1001;
+      padding: 0.5rem;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .nav-mobile {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 8, 7, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+    .nav-mobile.active { opacity: 1; pointer-events: auto; }
+    
+    .nav-mobile a {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #fff;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+    .nav-mobile a:hover { opacity: 1; }
+
+    /* Toggle Animation */
+    .menu-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .menu-toggle.active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 .fact-num { font-family: "Space Grotesk", sans-serif; font-size: 1.8rem; font-weight: 600; color: var(--eggplant); line-height: 1; margin-bottom: 0.2rem; }
 .fact-label { font-size: 0.78rem; color: var(--muted); line-height: 1.4; }
@@ -731,9 +783,16 @@ footer { background: var(--eggplant); padding: 1.5rem 2.5rem; }
   .hero-title { font-size: clamp(3rem, 12vw, 5rem); }
 
   /* Nav */
-  nav { padding: 0 1.5rem; }
-  nav .nav-logo { width: 100%; justify-content: space-between; }
+  nav { 
+    padding: 0 1.5rem; 
+    background: rgba(245, 241, 232, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  nav .nav-logo { width: auto; justify-content: flex-start; }
   nav .nav-links { display: none; }
+  .menu-toggle { display: flex; }
+  .nav-cta { display: none; }
 
   /* Sections padding */
   .projects { padding: 3rem 1.5rem; }
@@ -799,10 +858,24 @@ footer { background: var(--eggplant); padding: 1.5rem 2.5rem; }
     <li><a href="work.html">Work</a></li>
     <li><a href="about.html" class="active">About</a></li>
     <li><a href="creative.html">Creative</a></li>
-    <li><a href="https://bdotmdev.wordpress.com" target="_blank" rel="noreferrer" aria-label="Visit WordPress blog - opens in a new tab">Blog</a></li>
+    <li><a href="https://bdotmdev.wordpress.com" target="_blank" rel="noreferrer">Blog</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Let's Work</a>
+  <div class="menu-toggle" id="menuToggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <a href="index.html#contact" class="nav-cta">Let's Work</a>
 </nav>
+
+<!-- Mobile Nav Overlay -->
+<div class="nav-mobile" id="navMobile">
+  <a href="home.html">Home</a>
+  <a href="work.html">Work</a>
+  <a href="about.html">About</a>
+  <a href="creative.html">Creative</a>
+  <a href="https://bdotmdev.wordpress.com" target="_blank">Blog</a>
+</div>
 
   <!-- ABOUT HEADER (Removed Hero & Projects) -->
   <div style="width:100%;border-top:2px solid rgba(26,21,20,0.15);background:var(--bg-warm);padding:0;margin:0;margin-top: 4rem;">
@@ -829,7 +902,7 @@ footer { background: var(--eggplant); padding: 1.5rem 2.5rem; }
             <div class="fact-label">Years in Project Management</div>
           </div>
           <div class="about-fact">
-            <div class="fact-num">4</div>
+            <div class="fact-num">5</div>
             <div class="fact-label">Case Studies</div>
           </div>
           <div class="about-fact">
@@ -987,7 +1060,7 @@ footer { background: var(--eggplant); padding: 1.5rem 2.5rem; }
       </div>
       <div class="footer-links">
         <a href="https://www.linkedin.com/in/bertram-moore/" target="_blank" rel="noreferrer" aria-label="LinkedIn profile - opens in a new tab">LinkedIn</a>
-        <a href="case-anubis.html" target="_blank" rel="noreferrer" aria-label="Anubis Case Study">Anubis Case Study</a>
+        <a href="case-melo.html" target="_blank" rel="noreferrer" aria-label="Stay Melo Case Study">Stay Melo Case Study</a>
         <a href="https://bdotmdev.wordpress.com" target="_blank" rel="noreferrer" aria-label="WordPress blog - opens in a new tab">Blog</a>
         <a href="mailto:bertram@bertrammoore.com">Email</a>
       </div>
@@ -1024,6 +1097,24 @@ footer { background: var(--eggplant); padding: 1.5rem 2.5rem; }
   }
   loadBlogPosts();
 
+  // Mobile Menu Toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const navMobile = document.getElementById('navMobile');
+  const mobileLinks = navMobile.querySelectorAll('a');
+
+  menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    navMobile.classList.toggle('active');
+    document.body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
+  });
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      navMobile.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  });
 </script>
 
 </body>

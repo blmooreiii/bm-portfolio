@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Bertram L. Moore III — Penny Hardaway Case Study</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:          #f5f1e8;
+  --bg-warm:     #ede9df;
+  --surface:     #ffffff;
+  --eggplant:    #614051;
+  --eggplant-lt: rgba(97,64,81,0.07);
+  --blue:        #1e95b2;
+  --blue-lt:     rgba(30,149,178,0.1);
+  --gold:        #dcc48e;
+  --gold-dk:     #b89a5c;
+  --text:        #1a1514;
+  --muted:       #7a706b;
+  --rule:        rgba(26,21,20,0.1);
+  --rule-heavy:  rgba(26,21,20,0.2);
+  
+  --hero-fade-start: 0.1s;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2.5rem; height: 60px;
+  background: rgba(245, 241, 232, 0.9);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--rule);
+}
+.nav-logo { display: flex; align-items: center; gap: 0.75rem; }
+.nav-mark-custom { display: flex; align-items: center; justify-content: center; }
+.nav-name { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+  text-decoration: none; color: var(--muted); transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--eggplant); }
+.nav-cta {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+  text-decoration: none; padding: 0.5rem 1.2rem; border-radius: 999px;
+  background: var(--eggplant); color: #fff; transition: all 0.2s;
+}
+.nav-cta:hover { filter: brightness(1.1); box-shadow: 0 6px 18px rgba(97,64,81,0.35); }
+
+/* ── CONTACT ── */
+.contact { background: var(--bg); border-top: 1px solid var(--rule); padding: 6rem 2.5rem; }
+.contact-inner { max-width: 600px; margin: 0 auto; text-align: center; }
+.contact-form { margin-top: 3rem; display: grid; gap: 1.25rem; text-align: left; }
+.form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+.form-label { font-family: 'Space Grotesk', sans-serif; font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+.form-input, .form-textarea {
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 12px;
+  padding: 1rem 1.25rem; font-family: 'Inter', sans-serif; font-size: 0.9rem; color: var(--text);
+  transition: all 0.2s;
+}
+.form-input:focus, .form-textarea:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 4px var(--blue-lt); }
+.form-textarea { min-height: 150px; resize: vertical; }
+.btn-submit {
+  font-family: 'Space Grotesk', sans-serif; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+  background: var(--eggplant); color: #fff; border: none; padding: 1.1rem; border-radius: 12px;
+  cursor: pointer; transition: all 0.2s; margin-top: 0.5rem;
+}
+.btn-submit:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(97,64,81,0.25); }
+
+.footer-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-left { display: flex; align-items: center; gap: 0.75rem; }
+.footer-copy {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem; letter-spacing: 0.12em; color: rgba(245, 241, 232, 0.7);
+}
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+  text-decoration: none; color: rgba(245, 241, 232, 0.6); transition: color 0.2s;
+}
+.footer-links a:hover { color: #fff; }
+footer { background: var(--eggplant); padding: 1.5rem 2.5rem; }
+
+@media (max-width: 768px) {
+  nav { padding: 0 1.5rem; }
+  nav .nav-logo { width: 100%; justify-content: space-between; }
+  nav .nav-links { display: none; }
+  .footer-inner { flex-direction: column; gap: 1rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-mark-custom">
+      <img src="bm-logo.png" alt="Bertram L. Moore III Logo" style="height:36px; width:auto; display:block;" />
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="work.html" class="active">Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="creative.html">Creative</a></li>
+    <li><a href="https://bdotmdev.wordpress.com" target="_blank" rel="noreferrer">Blog</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Let's Work</a>
+</nav>
+
+  <!-- CASE STUDY HEADER -->
+  <div style="width:100%;border-top:2px solid rgba(26,21,20,0.15);background:var(--bg-warm);padding:0;margin:0;margin-top: 4rem;">
+    <div style="max-width:1100px;margin:0 auto;padding:3rem 2.5rem;display:flex;flex-direction:column;gap:1.5rem;">
+      <span style="font-family:'Space Grotesk',sans-serif;font-size:0.6rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--muted);">Case Study · Interactive Fan Experience</span>
+      <h1 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2.5rem, 5vw, 4rem);font-weight:700;letter-spacing:-0.03em;color:var(--text);line-height:1;">90s Icon:<br/>The Penny Hardaway Experience.</h1>
+      
+      <div class="case-meta" style="display:flex;gap:2rem;margin-top:1rem;padding-top:1.5rem;border-top:1px solid var(--rule);">
+        <div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.3rem;">Role</div>
+          <div style="font-size:0.85rem;color:var(--text);font-weight:500;">Lead Designer & Developer</div>
+        </div>
+        <div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.3rem;">Status</div>
+          <div style="font-size:0.85rem;color:var(--text);font-weight:500;">Legacy Project</div>
+        </div>
+        <div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.3rem;">Year</div>
+          <div style="font-size:0.85rem;color:var(--text);font-weight:500;">2026</div>
+        </div>
+        <div style="margin-left:auto;">
+          <a href="../penny_website/index.html" target="_blank" style="display:inline-flex; align-items:center; gap:0.5rem; text-decoration:none; background:var(--blue); color:#fff; padding:0.6rem 1.25rem; border-radius:12px; font-family:'Space Grotesk',sans-serif; font-size:0.75rem; font-weight:600; letter-spacing:0.05em; transition:all 0.2s;">
+            View Live Project
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO IMAGE -->
+  <div style="max-width:1100px;margin:3rem auto;padding:0 2.5rem;">
+      <div style="width:100%;height:600px;border-radius:20px;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
+          <img src="hero-penny.jpg" alt="Penny Hardaway Artistic Depiction" style="width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block;" />
+      </div>
+  </div>
+
+  <!-- ARTICLE CONTENT -->
+  <article style="max-width:800px;margin:0 auto;padding:2rem 2.5rem 6rem;font-size:1rem;color:var(--text);line-height:1.8;">
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;letter-spacing:-0.02em;margin-bottom:1.5rem;margin-top:2rem;">Objective</h2>
+    <p style="margin-bottom:1.5rem;color:var(--muted);">The objective was to create a high-end, immersive portfolio website celebrating the legacy of NBA legend Anfernee "Penny" Hardaway. The project aimed to blend a 90s "Retro-Modern" aesthetic with advanced web interactions, specifically focusing on sneaker culture and career milestones.</p>
+    
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;letter-spacing:-0.02em;margin-bottom:1.5rem;margin-top:3rem;">The Challenge</h2>
+    <p style="margin-bottom:1.5rem;color:var(--muted);">How do you translate the specific vibe of 90s basketball culture—think pinstripes, neon blue, and high-tech sneakers—into a modern, responsive web experience? The challenge was to create a site that felt nostalgic yet premium, incorporating complex animations without sacrificing usability or stability.</p>
+
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;letter-spacing:-0.02em;margin-bottom:1.5rem;margin-top:3rem;">Key Features</h2>
+    
+    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.2rem;font-weight:600;margin-bottom:0.5rem;color:var(--text);">1. Cinematic Intro Sequence</h3>
+    <p style="margin-bottom:1.5rem;color:var(--muted);">A JavaScript-driven opening sequence titled "The Tip-Off." It features rhythmic flashes of career-defining images synced with basketball sound effects (thuds, swishes, crowd roars), culminating in a "Magic Legend" reveal. I implemented a failsafe skip mechanism to ensure accessibility even if assets take time to load.</p>
+
+    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.2rem;font-weight:600;margin-bottom:0.5rem;color:var(--text);">2. Signature Shoe Gallery</h3>
+    <p style="margin-bottom:1.5rem;color:var(--muted);">A dynamic "Engine" for exploring Penny's signature Nike line. This required precise DOM synchronization between high-resolution images and technical descriptions. We moved from a hover-based interaction to a click-based model to ensure stability across both desktop and touch devices.</p>
+
+    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.2rem;font-weight:600;margin-bottom:0.5rem;color:var(--text);">3. "Guess Like Penny" Game</h3>
+    <p style="margin-bottom:1.5rem;color:var(--muted);">A playful interaction where users try to guess Penny's favorite number. It uses simple JS state management to provide feedback, adding a layer of gamification to the portfolio.</p>
+
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;letter-spacing:-0.02em;margin-bottom:1.5rem;margin-top:3rem;">Technical Deep Dive</h2>
+    <p style="margin-bottom:1.5rem;color:var(--muted);">From a developer's perspective, this project was an exercise in <strong>Synchronous State Management</strong>. For the shoe gallery, we encountered a bug where the title text wouldn't update alongside the image. I resolved this by refactoring the `updateDisplay` function to be strictly synchronous and using unique DOM IDs (`shoeDisplayName`, `shoeDisplayDesc`) to bypass browser-level caching issues.</p>
+    <p style="margin-bottom:1.5rem;color:var(--muted);">The site also utilizes a <strong>Cache-Busting Strategy</strong> for the main JS engine and hardened error handling in the custom `SoundManager` class to prevent audio failures from blocking the main thread.</p>
+
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;letter-spacing:-0.02em;margin-bottom:1.5rem;margin-top:3rem;">Results</h2>
+    <p style="margin-bottom:1.5rem;color:var(--muted);">The result is a highly polished, interactive experience that serves as a proof of concept for thematic, culture-first web design. It successfully showcases the intersection of PMO structure (planning the sequence) and UX Thinking (the final interaction).</p>
+  </article>
+
+  <!-- NEXT PROJECT NAV -->
+  <div style="width:100%;border-top:1px solid var(--rule);padding:4rem 2.5rem;text-align:center;">
+      <span style="font-family:'Space Grotesk',sans-serif;font-size:0.58rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:1rem;">Next Project</span>
+      <a href="case-anubis.html" style="font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:600;letter-spacing:-0.02em;color:var(--eggplant);text-decoration:none;">Project Anubis Case Study →</a>
+  </div>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="contact-inner">
+      <p class="eyebrow">Connect</p>
+      <h2 class="section-title">Let's build something <br/>extraordinary together.</h2>
+      
+      <form action="https://formspree.io/f/mbdzlgyp" method="POST" class="contact-form">
+        <div class="form-group">
+          <label for="name" class="form-label">Full Name</label>
+          <input type="text" name="name" id="name" class="form-input" placeholder="Bertram Moore" required />
+        </div>
+        <div class="form-group">
+          <label for="email" class="form-label">Email Address</label>
+          <input type="email" name="email" id="email" class="form-input" placeholder="bertram@example.com" required />
+        </div>
+        <div class="form-group">
+          <label for="message" class="form-label">Project Details</label>
+          <textarea name="message" id="message" class="form-textarea" placeholder="Tell me about your project, goals, and timeline..." required></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Send Message →</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-left">
+        <div class="nav-mark-custom" style="display:inline-block; margin-right:12px; opacity:0.8; filter:brightness(0) invert(1);">
+          <img src="bm-logo.png" alt="Bertram L. Moore III Logo" style="height:28px; width:auto; display:block;" />
+        </div>
+        <span class="footer-copy">© 2026 Bertram L. Moore III. All rights reserved.</span>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/bertram-moore/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="case-melo.html">Stay Me7o</a>
+        <a href="https://bdotmdev.wordpress.com" target="_blank" rel="noreferrer">Blog</a>
+        <a href="mailto:bertram@bertrammoore.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

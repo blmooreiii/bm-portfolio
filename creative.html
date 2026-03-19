@@ -44,12 +44,12 @@ body {
 }
 .typewriter-text {
   font-family: 'Source Sans 3', sans-serif;
-  font-size: clamp(1.1rem, 5vw, 2.2rem);
+  font-size: clamp(1rem, 4vw, 1.8rem);
   font-weight: 300;
-  line-height: 1.5;
+  line-height: 1.6;
   letter-spacing: 0.05em;
   color: #fff;
-  max-width: 800px;
+  max-width: min(95vw, 1000px);
   min-height: 4.5em; /* Prevent layout jump */
   white-space: pre-wrap; /* Allow newlines */
 }
@@ -346,18 +346,29 @@ nav {
 }
 
 @media (max-width: 768px) {
-  nav { padding: 1rem 1.5rem; }
+  nav { 
+    padding: 1rem 1.5rem; 
+    mix-blend-mode: normal;
+    background: rgba(10, 8, 7, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
   .nav-links { display: none; }
-  .nav-logo img { height: 22px !important; }
+  .nav-logo img { height: 28px !important; }
   .nav-cta { font-size: 0.55rem; padding: 0.5rem 1rem; }
 
   .gallery-container { flex-direction: column; }
   .strip { 
-    height: calc(100vh / 9); 
+    height: calc(100vh / 10); 
     border-right: none; 
     border-bottom: 1px solid rgba(255,255,255,0.05); 
     transform: translateY(20px); 
     opacity: 0;
+  }
+  #creative-intro .typewriter-text {
+    font-size: clamp(0.9rem, 5vw, 1.4rem);
+    line-height: 1.5;
   }
   .strip img { 
     width: 100%; 
@@ -368,7 +379,7 @@ nav {
   .strip-label { 
     opacity: 0.8 !important; 
     transform: translateY(0) !important;
-    bottom: 50%;
+    bottom: 25%;
     left: 1.5rem;
     transform: translateY(50%) !important;
     font-size: 0.5rem;

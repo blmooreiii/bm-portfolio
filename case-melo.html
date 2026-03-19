@@ -711,9 +711,14 @@ footer { background: var(--eggplant); padding: 1.5rem 2.5rem; }
   /* About facts: wrap to 2 cols */
   .about-facts { grid-template-columns: 1fr 1fr; }
 
-  /* Footer stack */
   .footer-inner { flex-direction: column; gap: 1rem; text-align: center; }
   .footer-links { flex-wrap: wrap; justify-content: center; }
+
+  /* Case Meta Stacking */
+  .case-meta {
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
 }
 
 /* ── BLOG / WORDPRESS FEED ── */
@@ -771,14 +776,14 @@ footer { background: var(--eggplant); padding: 1.5rem 2.5rem; }
       <span style="font-family:'Space Grotesk',sans-serif;font-size:0.6rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--muted);">Case Study · Creative Direction</span>
       <h1 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2.5rem, 5vw, 4rem);font-weight:700;letter-spacing:-0.03em;color:var(--text);line-height:1;">Then & Now.<br/>Stay Me7o.</h1>
       
-      <div style="display:flex;gap:2rem;margin-top:1rem;padding-top:1.5rem;border-top:1px solid var(--rule);">
+      <div class="case-meta" style="display:flex;gap:2rem;margin-top:1rem;padding-top:1.5rem;border-top:1px solid var(--rule);">
         <div>
           <div style="font-family:'Space Grotesk',sans-serif;font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.3rem;">Role</div>
           <div style="font-size:0.85rem;color:var(--text);font-weight:500;">Creative Director</div>
         </div>
         <div>
-          <div style="font-family:'Space Grotesk',sans-serif;font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.3rem;">Client</div>
-          <div style="font-size:0.85rem;color:var(--text);font-weight:500;">Project Anubis</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.3rem;">Status</div>
+          <div style="font-size:0.85rem;color:var(--text);font-weight:500;">Multimedia Project</div>
         </div>
         <div>
           <div style="font-family:'Space Grotesk',sans-serif;font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.3rem;">Year</div>
@@ -847,7 +852,7 @@ footer { background: var(--eggplant); padding: 1.5rem 2.5rem; }
   <!-- NEXT PROJECT NAV -->
   <div style="width:100%;border-top:1px solid var(--rule);padding:4rem 2.5rem;text-align:center;">
       <span style="font-family:'Space Grotesk',sans-serif;font-size:0.58rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:1rem;">Next Project</span>
-      <a href="case-anubis.html" style="font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:600;letter-spacing:-0.02em;color:var(--eggplant);text-decoration:none;">Project Anubis Case Study →</a>
+      <a href="case-penny.html" style="font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:600;letter-spacing:-0.02em;color:var(--eggplant);text-decoration:none;">Penny Hardaway Case Study →</a>
   </div>
 
   <!-- ABOUT -->
@@ -886,7 +891,7 @@ footer { background: var(--eggplant); padding: 1.5rem 2.5rem; }
       </div>
       <div class="footer-links">
         <a href="https://www.linkedin.com/in/bertram-moore/" target="_blank" rel="noreferrer" aria-label="LinkedIn profile - opens in a new tab">LinkedIn</a>
-        <a href="case-anubis.html" target="_blank" rel="noreferrer" aria-label="Anubis Case Study">Anubis Case Study</a>
+        <a href="case-melo.html" target="_blank" rel="noreferrer" aria-label="Stay Melo Case Study">Stay Melo Case Study</a>
         <a href="https://bdotmdev.wordpress.com" target="_blank" rel="noreferrer" aria-label="WordPress blog - opens in a new tab">Blog</a>
         <a href="mailto:bertram@bertrammoore.com">Email</a>
       </div>
