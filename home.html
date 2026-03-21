@@ -636,6 +636,7 @@
       z-index: 1001;
       padding: 0.5rem;
     }
+
     .menu-toggle span {
       display: block;
       width: 22px;
@@ -660,8 +661,12 @@
       pointer-events: none;
       transition: opacity 0.4s ease;
     }
-    .nav-mobile.active { opacity: 1; pointer-events: auto; }
-    
+
+    .nav-mobile.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
     .nav-mobile a {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 1.5rem;
@@ -672,12 +677,23 @@
       opacity: 0.7;
       transition: opacity 0.3s;
     }
-    .nav-mobile a:hover { opacity: 1; }
+
+    .nav-mobile a:hover {
+      opacity: 1;
+    }
 
     /* Toggle Animation */
-    .menu-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .menu-toggle.active span:nth-child(2) { opacity: 0; }
-    .menu-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .menu-toggle.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
 
     /* ══════════════════════════════════════
    HERO B — Split Scene
@@ -756,20 +772,23 @@
       opacity: 0;
       will-change: opacity;
     }
+
     .film-scratch.s1 {
       left: 18%;
-      background: linear-gradient(to bottom, transparent 5%, rgba(245,241,232,0.55) 20%, rgba(245,241,232,0.7) 50%, rgba(245,241,232,0.45) 80%, transparent 95%);
+      background: linear-gradient(to bottom, transparent 5%, rgba(245, 241, 232, 0.55) 20%, rgba(245, 241, 232, 0.7) 50%, rgba(245, 241, 232, 0.45) 80%, transparent 95%);
       animation: scratch1 7s ease calc(var(--intro-exit-delay) + 0.6s) infinite;
     }
+
     .film-scratch.s2 {
       left: 63%;
-      background: linear-gradient(to bottom, transparent 10%, rgba(245,241,232,0.4) 30%, rgba(245,241,232,0.6) 60%, transparent 90%);
+      background: linear-gradient(to bottom, transparent 10%, rgba(245, 241, 232, 0.4) 30%, rgba(245, 241, 232, 0.6) 60%, transparent 90%);
       animation: scratch2 11s ease calc(var(--intro-exit-delay) + 2.5s) infinite;
     }
+
     .film-scratch.s3 {
       left: 41%;
       width: 1px;
-      background: linear-gradient(to bottom, transparent, rgba(245,241,232,0.35) 40%, rgba(245,241,232,0.5) 55%, transparent);
+      background: linear-gradient(to bottom, transparent, rgba(245, 241, 232, 0.35) 40%, rgba(245, 241, 232, 0.5) 55%, transparent);
       animation: scratch3 9s ease calc(var(--intro-exit-delay) + 4.8s) infinite;
     }
 
@@ -779,7 +798,7 @@
       left: 0;
       right: 0;
       height: 1px;
-      background: linear-gradient(90deg, transparent 5%, rgba(245,241,232,0.5) 25%, rgba(245,241,232,0.7) 55%, rgba(245,241,232,0.3) 80%, transparent 95%);
+      background: linear-gradient(90deg, transparent 5%, rgba(245, 241, 232, 0.5) 25%, rgba(245, 241, 232, 0.7) 55%, rgba(245, 241, 232, 0.3) 80%, transparent 95%);
       transform: translateY(-4px);
       opacity: 0;
       will-change: transform, opacity;
@@ -790,48 +809,143 @@
     .film-flicker {
       position: absolute;
       inset: 0;
-      background: rgba(245,241,232,0.04);
+      background: rgba(245, 241, 232, 0.04);
       opacity: 0;
       animation: filmFlicker 6s steps(1) calc(var(--intro-exit-delay) + 0.4s) infinite;
     }
 
     @keyframes scratch1 {
-      0%, 8%    { opacity: 0; }
-      9%        { opacity: 1; }
-      10%       { opacity: 0.6; }
-      11%       { opacity: 0; }
-      100%      { opacity: 0; }
+
+      0%,
+      8% {
+        opacity: 0;
+      }
+
+      9% {
+        opacity: 1;
+      }
+
+      10% {
+        opacity: 0.6;
+      }
+
+      11% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 0;
+      }
     }
+
     @keyframes scratch2 {
-      0%, 40%   { opacity: 0; }
-      41%       { opacity: 0.8; }
-      42%       { opacity: 0.4; }
-      43.5%     { opacity: 0; }
-      100%      { opacity: 0; }
+
+      0%,
+      40% {
+        opacity: 0;
+      }
+
+      41% {
+        opacity: 0.8;
+      }
+
+      42% {
+        opacity: 0.4;
+      }
+
+      43.5% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 0;
+      }
     }
+
     @keyframes scratch3 {
-      0%, 62%   { opacity: 0; }
-      63%       { opacity: 0.6; }
-      63.5%     { opacity: 0; }
-      64%       { opacity: 0.4; }
-      65%       { opacity: 0; }
-      100%      { opacity: 0; }
+
+      0%,
+      62% {
+        opacity: 0;
+      }
+
+      63% {
+        opacity: 0.6;
+      }
+
+      63.5% {
+        opacity: 0;
+      }
+
+      64% {
+        opacity: 0.4;
+      }
+
+      65% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 0;
+      }
     }
+
     @keyframes hairLine {
-      0%, 55%         { opacity: 0; transform: translateY(-8px); }
-      56%             { opacity: 0.7; }
-      65%             { opacity: 0.4; transform: translateY(110%); }
-      66%, 100%       { opacity: 0; transform: translateY(110%); }
+
+      0%,
+      55% {
+        opacity: 0;
+        transform: translateY(-8px);
+      }
+
+      56% {
+        opacity: 0.7;
+      }
+
+      65% {
+        opacity: 0.4;
+        transform: translateY(110%);
+      }
+
+      66%,
+      100% {
+        opacity: 0;
+        transform: translateY(110%);
+      }
     }
+
     @keyframes filmFlicker {
-      0%    { opacity: 0; }
-      91%   { opacity: 0; }
-      92%   { opacity: 1; }
-      93%   { opacity: 0; }
-      97%   { opacity: 0; }
-      97.5% { opacity: 1; }
-      98%   { opacity: 0; }
-      100%  { opacity: 0; }
+      0% {
+        opacity: 0;
+      }
+
+      91% {
+        opacity: 0;
+      }
+
+      92% {
+        opacity: 1;
+      }
+
+      93% {
+        opacity: 0;
+      }
+
+      97% {
+        opacity: 0;
+      }
+
+      97.5% {
+        opacity: 1;
+      }
+
+      98% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 0;
+      }
     }
 
     .hero-top {
@@ -1581,8 +1695,12 @@
       .menu-toggle {
         display: flex;
       }
-      
-      .nav-cta { display: none; } /* Hide in bar, move to menu if needed or keep simple */
+
+      .nav-cta {
+        display: none;
+      }
+
+      /* Hide in bar, move to menu if needed or keep simple */
 
       /* Sections padding */
       .projects {
@@ -1681,7 +1799,7 @@
     }
 
     /* Keep all card content above the shutter overlay */
-    .blog-card > * {
+    .blog-card>* {
       position: relative;
       z-index: 2;
     }
@@ -1694,15 +1812,30 @@
 
     /* Text color overrides on hover so content stays legible on eggplant */
     .blog-card:hover .blog-tag {
-      color: rgba(245,241,232,0.75);
-      background: rgba(245,241,232,0.12);
-      border-color: rgba(245,241,232,0.2);
+      color: rgba(245, 241, 232, 0.75);
+      background: rgba(245, 241, 232, 0.12);
+      border-color: rgba(245, 241, 232, 0.2);
     }
-    .blog-card:hover .blog-title { color: #f5f1e8; }
-    .blog-card:hover .blog-excerpt { color: rgba(245,241,232,0.65); }
-    .blog-card:hover .blog-date { color: rgba(245,241,232,0.5); }
-    .blog-card:hover .blog-read { color: var(--gold); }
-    .blog-card:hover .blog-foot { border-top-color: rgba(245,241,232,0.12); }
+
+    .blog-card:hover .blog-title {
+      color: #f5f1e8;
+    }
+
+    .blog-card:hover .blog-excerpt {
+      color: rgba(245, 241, 232, 0.65);
+    }
+
+    .blog-card:hover .blog-date {
+      color: rgba(245, 241, 232, 0.5);
+    }
+
+    .blog-card:hover .blog-read {
+      color: var(--gold);
+    }
+
+    .blog-card:hover .blog-foot {
+      border-top-color: rgba(245, 241, 232, 0.12);
+    }
 
     .blog-card.loading {
       opacity: 0.4;
@@ -1868,9 +2001,9 @@
   <!-- ══ NAV ══ -->
   <nav>
     <div class="nav-logo">
-      <div class="nav-mark-custom">
+      <a href="home.html" class="nav-mark-custom" aria-label="Bertram L. Moore III - Home">
         <img src="bm-logo.png" alt="Bertram L. Moore III Logo" style="height:36px; width:auto; display:block;" />
-      </div>
+      </a>
     </div>
     <ul class="nav-links">
       <li><a href="home.html" class="active">Home</a></li>
@@ -1913,11 +2046,9 @@
         <span class="hero-year">MMXXVI · Charleston, SC</span>
       </div>
       <div class="hero-headline">
-        <div class="hero-kicker">Manager of PMs · UX Thinker · Systems Builder</div>
+        <p class="hero-kicker">Manager of PMs · UX Thinker · Systems Builder</p>
         <h1 class="hero-title">
-          Structure.<br />
-          <span class="stroke">Story.</span>
-          <span class="gold">Systems.</span>
+          Structure. Story. Systems.
         </h1>
         <p class="hero-sub">Creating the structure for products, teams, and stories to work. PMO leadership, UX
           thinking, and building things that don't feel corporate.</p>
@@ -1962,14 +2093,6 @@
           <span class="hero-tag">Charleston, SC</span>
           <span class="hero-tag">J&J Insurance</span>
           <span class="hero-tag">GIT · ASU</span>
-          <span class="hero-tag">Anubis</span>
-        </div>
-        <div class="hero-social">
-          <a href="https://www.linkedin.com/in/bertram-moore/" target="_blank" rel="noreferrer"
-            aria-label="LinkedIn profile - opens in a new tab">LinkedIn</a>
-          <a href="case-anubis.html" target="_blank" rel="noreferrer" aria-label="Anubis Case Study">Anubis Case
-            Study</a>
-          <a href="mailto:bertram@bertrammoore.com">Email</a>
         </div>
       </div>
     </div>
@@ -2010,9 +2133,10 @@
               <span class="pill egg">Creative Direction</span>
             </div>
             <h3 class="project-title-lg">Stay Me7o:<br />It's Gotta Be The Shoes.</h3>
-            <p class="project-desc">A modern sportswear campaign centered on the Air Jordan 12 “Melo” sneaker, reimagining the Nike advertising style for a new generation.</p>
+            <p class="project-desc">A modern sportswear campaign centered on the Air Jordan 12 “Melo” sneaker,
+              reimagining the Nike advertising style for a new generation.</p>
           </div>
-          <a href="case-melo.html" class="project-link">View Case Study</a>
+          <a href="case-melo.html" class="project-link" aria-label="View Case Study for Stay Me7o Branding Project">View Case Study</a>
         </div>
       </div>
 
@@ -2030,9 +2154,10 @@
               <span class="pill egg">Sneaker Culture</span>
             </div>
             <h3 class="project-title-lg">90s Icon:<br />The Penny Hardaway Experience</h3>
-            <p class="project-desc">A premium, high-energy fan tribute site featuring a cinematic intro, dynamic signature shoe engine, and interactive milestones.</p>
+            <p class="project-desc">A premium, high-energy fan tribute site featuring a cinematic intro, dynamic
+              signature shoe engine, and interactive milestones.</p>
           </div>
-          <a href="case-penny.html" class="project-link">View Case Study</a>
+          <a href="case-penny.html" class="project-link" aria-label="View Case Study for 90s Icon: The Penny Hardaway Experience">View Case Study</a>
         </div>
       </div>
 
@@ -2045,7 +2170,7 @@
           <div class="card-body">
             <h3 class="card-title">Project Anubis</h3>
             <p class="card-desc">Civic Project... details coming soon.</p>
-            <a href="case-anubis.html" class="project-link">View Case Study</a>
+            <a href="case-anubis.html" class="project-link" aria-label="View Case Study for Project Anubis">View Case Study</a>
           </div>
         </div>
         <div class="project-card">
@@ -2057,7 +2182,7 @@
             <h3 class="card-title">Project Taurus</h3>
             <p class="card-desc">A personal sneaker collection management app designed and built for collectors to
               catalog and manage their inventory.</p>
-            <a href="case-taurus.html" class="project-link">View Case Study</a>
+            <a href="case-taurus.html" class="project-link" aria-label="View Case Study for Project Taurus Sneaker Collection App">View Case Study</a>
           </div>
         </div>
       </div>
@@ -2070,9 +2195,17 @@
         <div class="about-content">
           <p class="about-kicker">About</p>
           <h2 class="about-hl">When Product Thinking<br />Meets Culture</h2>
-          <p class="about-p">Bertram L. Moore III is a developer, product thinker, and creative strategist focused on building tools that solve real-world problems. With a background in project and product management at a Fortune 15 company, he approaches technology with both structure and curiosity—bringing ideas from concept to launch with a balance of strategy, design, and execution.</p>
-          <p class="about-p">His work sits at the intersection of technology, culture, and community. Whether developing mobile apps, building digital platforms, or experimenting with new ideas, Bertram is driven by the belief that the best products come from understanding people first. From civic-minded technology projects to creative experiments, his goal is always the same: build things that matter.</p>
-          <p class="about-p">Outside of development, Bertram is a lifelong student of culture—especially sneakers, storytelling, and the subtle art of being fly. That influence shows up in everything he creates: thoughtful design, clean execution, and a respect for the details that make something stand out.</p>
+          <p class="about-p">Bertram L. Moore III is a developer, product thinker, and creative strategist focused on
+            building tools that solve real-world problems. With a background in project and product management at a
+            Fortune 15 company, he approaches technology with both structure and curiosity—bringing ideas from concept
+            to launch with a balance of strategy, design, and execution.</p>
+          <p class="about-p">His work sits at the intersection of technology, culture, and community. Whether developing
+            mobile apps, building digital platforms, or experimenting with new ideas, Bertram is driven by the belief
+            that the best products come from understanding people first. From civic-minded technology projects to
+            creative experiments, his goal is always the same: build things that matter.</p>
+          <p class="about-p">Outside of development, Bertram is a lifelong student of culture—especially sneakers,
+            storytelling, and the subtle art of being fly. That influence shows up in everything he creates: thoughtful
+            design, clean execution, and a respect for the details that make something stand out.</p>
           <div class="about-facts">
             <div class="about-fact">
               <div class="fact-num">8+</div>
@@ -2098,25 +2231,24 @@
         <h2 class="section-title">What I Do</h2>
         <div class="skills-grid">
           <div class="skill-card">
-            <div class="skill-icon">⬡</div>
+            <div class="skill-icon" aria-hidden="true">⬡</div>
             <div class="skill-title">Project & Program Management</div>
             <div class="skill-desc">Pods, PMO structure, RAID/RACI, Smartsheet, sprints, and delivery execution.</div>
           </div>
           <div class="skill-card">
-            <div class="skill-icon">◎</div>
+            <div class="skill-icon" aria-hidden="true">◎</div>
             <div class="skill-title">UX & Product Thinking</div>
             <div class="skill-desc">Wireframes, journey maps, usability tests, flows, and user-centered design.</div>
           </div>
           <div class="skill-card">
-            <div class="skill-icon">⌗</div>
+            <div class="skill-icon" aria-hidden="true">⌗</div>
             <div class="skill-title">Front-End Development</div>
             <div class="skill-desc">HTML, CSS, JavaScript, React, React Native, and component systems.</div>
           </div>
           <div class="skill-card">
-            <div class="skill-icon">◈</div>
-            <div class="skill-title">Content & Brand Story</div>
-            <div class="skill-desc">Creative direction and sports culture storytelling through ATCS and Project Anubis.
-            </div>
+            <div class="skill-icon" aria-hidden="true">◈</div>
+            <div class="skill-title">Creative Strategy</div>
+            <div class="skill-desc">Brand identity, content strategy, storytelling, and creative direction.</div>
           </div>
         </div>
       </div>
@@ -2186,7 +2318,6 @@
         <div class="footer-links">
           <a href="https://www.linkedin.com/in/bertram-moore/" target="_blank" rel="noreferrer"
             aria-label="LinkedIn profile - opens in a new tab">LinkedIn</a>
-          <a href="case-melo.html" target="_blank" rel="noreferrer" aria-label="Stay Melo Case Study">Stay Melo Case Study</a>
           <a href="https://bdotmdev.wordpress.com" target="_blank" rel="noreferrer"
             aria-label="WordPress blog - opens in a new tab">Blog</a>
           <a href="mailto:bertram@bertrammoore.com">Email</a>

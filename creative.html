@@ -1,461 +1,764 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Creative Storyteller — Bertram L. Moore III</title>
-<meta name="description" content="Photography and creative storytelling by Bertram L. Moore III — a visual diary of culture, community, and the subtle art of being fly." />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=Source+Sans+3:wght@200;300;400;600&display=swap" rel="stylesheet"/>
-<style>
-:root {
-  --bg:          #0a0807; /* Darker for higher impact */
-  --bg-cream:    #f5f1e8;
-  --eggplant:    #614051;
-  --gold:        #dcc48e;
-  --text:        #f5f1e8;
-  --muted:       rgba(245,241,232,0.5);
-  --rule:        rgba(245,241,232,0.1);
-  --ease-expo:   cubic-bezier(0.85, 0, 0.15, 1);
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creative Storyteller — Bertram L. Moore III</title>
+  <meta name="description"
+    content="Photography and creative storytelling by Bertram L. Moore III — a visual diary of culture, community, and the subtle art of being fly." />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=Source+Sans+3:wght@200;300;400;600&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0807;
+      /* Darker for higher impact */
+      --bg-cream: #f5f1e8;
+      --eggplant: #614051;
+      --gold: #dcc48e;
+      --text: #f5f1e8;
+      --muted: rgba(245, 241, 232, 0.5);
+      --rule: rgba(245, 241, 232, 0.1);
+      --ease-expo: cubic-bezier(0.85, 0, 0.15, 1);
+    }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-html { scroll-behavior: smooth; }
-body {
-  background: var(--bg);
-  font-family: 'Inter', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  overflow: hidden; /* Gallery fills viewport */
-  color: var(--text);
-  image-rendering: -webkit-optimize-contrast;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-/* ── INTRO TYPEWRITER ── */
-#creative-intro {
-  position: fixed;
-  inset: 0;
-  z-index: 3000;
-  background: var(--bg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  text-align: center;
-}
-.typewriter-text {
-  font-family: 'Source Sans 3', sans-serif;
-  font-size: clamp(1rem, 4vw, 1.8rem);
-  font-weight: 300;
-  line-height: 1.6;
-  letter-spacing: 0.05em;
-  color: #fff;
-  max-width: min(95vw, 1000px);
-  min-height: 4.5em; /* Prevent layout jump */
-  white-space: pre-wrap; /* Allow newlines */
-}
-.typewriter-cursor {
-  display: inline-block;
-  width: 2px;
-  height: 1.2em;
-  background: var(--gold);
-  margin-left: 2px;
-  vertical-align: middle;
-  animation: blink 0.8s step-end infinite;
-}
-@keyframes blink {
-  from, to { opacity: 1; }
-  50% { opacity: 0; }
-}
+    body {
+      background: var(--bg);
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      overflow-y: auto;
+      /* Gallery fills viewport */
+      color: var(--text);
+      image-rendering: -webkit-optimize-contrast;
+    }
 
-/* ── NAV ── */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 2rem 3rem;
-  mix-blend-mode: difference;
-  pointer-events: none;
-}
-.nav-logo, .nav-links, .nav-cta { pointer-events: auto; }
-.nav-logo { display: flex; align-items: center; text-decoration: none; }
-.nav-links { display: flex; gap: 2.5rem; list-style: none; }
-.nav-links a {
-  font-family: 'Space Grotesk', sans-serif; font-size: 0.7rem;
-  letter-spacing: 0.15em; text-transform: uppercase;
-  color: #fff; text-decoration: none;
-  transition: opacity 0.4s var(--ease-expo);
-}
-.nav-links a:hover { opacity: 0.5; }
-.nav-cta {
-  font-family: 'Space Grotesk', sans-serif; font-size: 0.7rem;
-  letter-spacing: 0.15em; text-transform: uppercase;
-  background: #fff; color: #000;
-  padding: 0.6rem 1.6rem; border-radius: 999px;
-  text-decoration: none; transition: transform 0.4s var(--ease-expo), background 0.4s;
-}
-.nav-cta:hover { transform: scale(1.05); background: var(--gold); }
+    /* ── INTRO TYPEWRITER ── */
+    #creative-intro {
+      position: fixed;
+      inset: 0;
+      z-index: 3000;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+    }
 
-/* ── STRIP GALLERY ── */
-.gallery-container {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  overflow: hidden;
-  background: #000;
-}
+    .typewriter-text {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: clamp(1rem, 4vw, 1.8rem);
+      font-weight: 300;
+      line-height: 1.6;
+      letter-spacing: 0.05em;
+      color: #fff;
+      max-width: min(95vw, 1000px);
+      min-height: 4.5em;
+      /* Prevent layout jump */
+      white-space: pre-wrap;
+      /* Allow newlines */
+    }
 
-.strip {
-  position: relative;
-  flex: 1;
-  height: 100vh;
-  overflow: hidden;
-  cursor: pointer;
-  opacity: 0;
-  transform: translateY(20px); 
-  transition: 
-    flex 0.8s var(--ease-expo), 
-    transform 0.9s ease,
-    opacity 0.9s ease,
-    filter 0.5s ease;
-  border-right: 1px solid rgba(255,255,255,0.03);
-  will-change: flex, transform;
-}
+    .typewriter-cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1.2em;
+      background: var(--gold);
+      margin-left: 2px;
+      vertical-align: middle;
+      animation: blink 0.8s step-end infinite;
+    }
 
-.strip:last-child { border-right: none; }
+    @keyframes blink {
 
-.strip img {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%) scale(1.1);
-  height: 100%;
-  width: auto;
-  min-width: 100%;
-  object-fit: cover;
-  transition: transform 0.8s var(--ease-expo), filter 0.5s ease;
-  filter: grayscale(0.2) brightness(0.6);
-  image-rendering: -webkit-optimize-contrast;
-  pointer-events: none;
-}
+      from,
+      to {
+        opacity: 1;
+      }
 
-/* Eggplant Overlay */
-.strip::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--eggplant);
-  opacity: 0.35; /* Lightened from 0.6 */
-  mix-blend-mode: multiply;
-  transition: opacity 0.7s var(--ease-expo);
-  z-index: 5;
-  pointer-events: none;
-}
+      50% {
+        opacity: 0;
+      }
+    }
 
-.strip:hover { flex: 1.4; filter: brightness(1.1); }
-.strip:hover img { transform: translateX(-50%) scale(1.02); filter: grayscale(0) brightness(1); }
-.strip:hover::after { opacity: 0; }
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem 3rem;
+      mix-blend-mode: difference;
+      pointer-events: none;
+    }
 
-.strip-label {
-  position: absolute;
-  bottom: 2rem;
-  left: 2rem;
-  z-index: 10;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.45rem;
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  color: #fff;
-  white-space: nowrap;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.5s var(--ease-expo), transform 0.5s var(--ease-expo);
-  transform: translateY(10px);
-}
-.strip-label.dark { color: #000; }
-.strip:hover .strip-label { opacity: 1; transform: translateY(0); }
+    .nav-logo,
+    .nav-links,
+    .nav-cta {
+      pointer-events: auto;
+    }
 
-/* ── FULLSCREEN SLIDER (MODAL) ── */
-.fullscreen-slider {
-  position: fixed;
-  inset: 0;
-  z-index: 2000;
-  background: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  visibility: hidden;
-  pointer-events: none;
-}
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
 
-.fullscreen-slider.active {
-  visibility: visible;
-  pointer-events: auto;
-}
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
 
-/* Expansion Animation Layer */
-.expansion-layer {
-  position: fixed;
-  z-index: 2001;
-  pointer-events: none;
-  background: #000;
-  overflow: hidden;
-  transition: all 0.8s var(--ease-expo);
-}
-.expansion-layer img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  padding: 10vh 12vw;
-}
+    .nav-links a {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #fff;
+      text-decoration: none;
+      transition: opacity 0.4s var(--ease-expo);
+    }
 
-.slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 1.2s var(--ease-expo);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
+    .nav-links a:hover {
+      opacity: 0.5;
+    }
 
-.slide.active { opacity: 1; }
+    .nav-cta {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: #fff;
+      color: #000;
+      padding: 0.6rem 1.6rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: transform 0.4s var(--ease-expo), background 0.4s;
+    }
 
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  padding: 10vh 12vw;
-  transform: scale(1.03);
-  transition: transform 1.2s var(--ease-expo);
-}
-.slide.active img { transform: scale(1); }
+    .nav-cta:hover {
+      transform: scale(1.05);
+      background: var(--gold);
+    }
 
-/* Lightbox UI */
-.slider-ui {
-  position: absolute;
-  inset: 0;
-  z-index: 2010;
-  pointer-events: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 3rem 4rem;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s var(--ease-expo) 0.4s, transform 0.8s var(--ease-expo) 0.4s;
-}
-.fullscreen-slider.active .slider-ui {
-  opacity: 1;
-  transform: translateY(0);
-}
+    /* ── STRIP GALLERY ── */
+    .gallery-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      overflow: hidden;
+      background: #000;
+    }
 
-.slider-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  pointer-events: auto;
-}
+    .strip {
+      position: relative;
+      flex: 1;
+      height: 100vh;
+      overflow: hidden;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(60px);
+      transition:
+        flex 0.8s var(--ease-expo),
+        transform 0.9s ease,
+        opacity 0.9s ease,
+        filter 0.5s ease;
+      border-right: 1px solid rgba(255, 255, 255, 0.03);
+      will-change: flex, transform;
+    }
 
-.btn-close {
-  background: none; border: none; cursor: pointer;
-  color: #fff; font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
-  padding: 1rem;
-  transition: opacity 0.3s;
-}
-.btn-close:hover { opacity: 0.6; }
+    .strip:last-child {
+      border-right: none;
+    }
 
-.slider-center {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  pointer-events: none;
-}
+    .strip img {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%) scale(1.1);
+      height: 100%;
+      width: auto;
+      min-width: 100%;
+      object-fit: cover;
+      transition: transform 0.8s var(--ease-expo), filter 0.5s ease;
+      filter: grayscale(0.2) brightness(0.6);
+      image-rendering: -webkit-optimize-contrast;
+      pointer-events: none;
+    }
 
-.nav-arrow {
-  background: none; border: none; cursor: pointer;
-  color: #fff; font-size: 1.5rem; opacity: 0.3;
-  transition: opacity 0.4s var(--ease-expo), transform 0.4s var(--ease-expo);
-  pointer-events: auto;
-  padding: 3rem;
-}
-.nav-arrow:hover { opacity: 1; transform: scale(1.2); }
+    /* Eggplant Overlay */
+    .strip::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--eggplant);
+      opacity: 0.35;
+      /* Lightened from 0.6 */
+      mix-blend-mode: multiply;
+      transition: opacity 0.7s var(--ease-expo);
+      z-index: 5;
+      pointer-events: none;
+    }
 
-.slider-top-right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  text-align: right;
-  pointer-events: none;
-}
-.slide-category {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.65rem; letter-spacing: 0.5em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 0.5rem;
-  transition: color 0.4s;
-}
-.slide-category.dark { color: #000; }
+    .strip:hover {
+      flex: 1.4;
+      filter: brightness(1.1);
+    }
 
-.slide-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(1.2rem, 3vw, 2.2rem);
-  font-weight: 700; letter-spacing: -0.01em;
-  text-transform: uppercase;
-  line-height: 1.1;
-  transition: color 0.4s;
-}
-.slide-title.dark { color: #000; }
+    .strip:hover img {
+      transform: translateX(-50%) scale(1.02);
+      filter: grayscale(0) brightness(1);
+    }
 
-.slider-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  pointer-events: auto;
-}
+    .strip:hover::after {
+      opacity: 0;
+    }
 
-.slider-counter {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.75rem; letter-spacing: 0.3em;
-  color: var(--muted);
-}
+    .strip-label {
+      position: absolute;
+      bottom: 2rem;
+      left: 2rem;
+      z-index: 10;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.45rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: #fff;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.5s var(--ease-expo), transform 0.5s var(--ease-expo);
+      transform: translateY(10px);
+    }
 
-.thumb-strip {
-  display: flex;
-  gap: 16px;
-}
-.thumb {
-  width: 56px; height: 56px;
-  border-radius: 2px;
-  overflow: hidden;
-  cursor: pointer;
-  opacity: 0.3;
-  transition: opacity 0.4s var(--ease-expo), transform 0.4s var(--ease-expo);
-  border: 1px solid transparent;
-}
-.thumb:hover { opacity: 0.6; transform: translateY(-4px); }
-.thumb.active { opacity: 1; border-color: var(--gold); transform: translateY(-4px); }
-.thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .strip-label.dark {
+      color: #000;
+    }
 
-/* ── RESPONSIVE ── */
-@media (max-width: 900px) {
-  nav { padding: 1rem 1.5rem; }
-  .slider-ui { padding: 2rem; }
-  .nav-arrow { padding: 1.5rem; }
-}
+    .strip:hover .strip-label {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-@media (max-width: 768px) {
-  nav { 
-    padding: 1rem 1.5rem; 
-    mix-blend-mode: normal;
-    background: rgba(10, 8, 7, 0.6);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-  }
-  .nav-links { display: none; }
-  .nav-logo img { height: 28px !important; }
-  .nav-cta { font-size: 0.55rem; padding: 0.5rem 1rem; }
+    /* ── FULLSCREEN SLIDER (MODAL) ── */
+    .fullscreen-slider {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+      pointer-events: none;
+    }
 
-  .gallery-container { flex-direction: column; }
-  .strip { 
-    height: calc(100vh / 10); 
-    border-right: none; 
-    border-bottom: 1px solid rgba(255,255,255,0.05); 
-    transform: translateY(20px); 
-    opacity: 0;
-  }
-  #creative-intro .typewriter-text {
-    font-size: clamp(0.9rem, 5vw, 1.4rem);
-    line-height: 1.5;
-  }
-  .strip img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover;
-  }
-  .strip:hover { flex: 1.2; }
-  .strip-label { 
-    opacity: 0.8 !important; 
-    transform: translateY(0) !important;
-    bottom: 25%;
-    left: 1.5rem;
-    transform: translateY(50%) !important;
-    font-size: 0.5rem;
-    letter-spacing: 0.3em;
-  }
+    .fullscreen-slider.active {
+      visibility: visible;
+      pointer-events: auto;
+    }
 
-  /* Slider adjustments */
-  .slider-ui { padding: 1.5rem; }
-  .slider-top-right { align-items: flex-end; }
-  .slide-title { font-size: 1.4rem; }
-  .slide-category { font-size: 0.55rem; letter-spacing: 0.3em; }
-  .thumb-strip { display: none; }
-  .nav-arrow { font-size: 1.2rem; padding: 1rem; }
-}
-</style>
+    /* Expansion Animation Layer */
+    .expansion-layer {
+      position: fixed;
+      z-index: 2001;
+      pointer-events: none;
+      background: #000;
+      overflow: hidden;
+      transition: all 0.8s var(--ease-expo);
+    }
+
+    .expansion-layer img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 10vh 12vw;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1.2s var(--ease-expo);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 10vh 12vw;
+      transform: scale(1.03);
+      transition: transform 1.2s var(--ease-expo);
+    }
+
+    .slide.active img {
+      transform: scale(1);
+    }
+
+    /* Lightbox UI */
+    .slider-ui {
+      position: absolute;
+      inset: 0;
+      z-index: 2010;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 3rem 4rem;
+      opacity: 0;
+      transform: translateY(60px);
+      transition: opacity 0.8s var(--ease-expo) 0.4s, transform 0.8s var(--ease-expo) 0.4s;
+    }
+
+    .fullscreen-slider.active .slider-ui {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slider-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      pointer-events: auto;
+    }
+
+    .btn-close {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #fff;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      padding: 1rem;
+      transition: opacity 0.3s;
+    }
+
+    .btn-close:hover {
+      opacity: 0.6;
+    }
+
+    .slider-center {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      pointer-events: none;
+    }
+
+    .nav-arrow {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #fff;
+      font-size: 1.5rem;
+      opacity: 0.3;
+      transition: opacity 0.4s var(--ease-expo), transform 0.4s var(--ease-expo);
+      pointer-events: auto;
+      padding: 3rem;
+    }
+
+    .nav-arrow:hover {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+
+    .slider-top-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      text-align: right;
+      pointer-events: none;
+    }
+
+    .slide-category {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+      transition: color 0.4s;
+    }
+
+    .slide-category.dark {
+      color: #000;
+    }
+
+    .slide-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.2rem, 3vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      line-height: 1.1;
+      transition: color 0.4s;
+    }
+
+    .slide-title.dark {
+      color: #000;
+    }
+
+    .slider-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      pointer-events: auto;
+    }
+
+    .slider-counter {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      color: var(--muted);
+    }
+
+    .thumb-strip {
+      display: flex;
+      gap: 16px;
+    }
+
+    .thumb {
+      width: 56px;
+      height: 56px;
+      border-radius: 2px;
+      overflow: hidden;
+      cursor: pointer;
+      opacity: 0.3;
+      transition: opacity 0.4s var(--ease-expo), transform 0.4s var(--ease-expo);
+      border: 1px solid transparent;
+    }
+
+    .thumb:hover {
+      opacity: 0.6;
+      transform: translateY(-4px);
+    }
+
+    .thumb.active {
+      opacity: 1;
+      border-color: var(--gold);
+      transform: translateY(-4px);
+    }
+
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ── PRINCIPLES SECTION ── */
+    .principles-section {
+      background: var(--bg);
+      padding: 10rem 3rem;
+      border-top: 1px solid var(--rule);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .principles-header {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 5rem;
+      text-align: center;
+      opacity: 0.8;
+    }
+
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5rem;
+    }
+
+    .principle-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .principle-card p {
+      font-size: 0.92rem;
+      line-height: 1.8;
+      color: var(--muted);
+      max-width: 320px;
+    }
+
+    @media (max-width: 968px) {
+      .principles-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+      }
+      .principles-section {
+        padding: 6rem 2rem;
+      }
+      .principle-card p {
+        max-width: none;
+      }
+      .principles-header {
+        margin-bottom: 3rem;
+      }
+    }
+
+    /* ── SCROLL HINT ── */
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      transition: opacity 1s ease;
+      z-index: 15;
+      pointer-events: none;
+    }
+
+    .scroll-hint.visible {
+      opacity: 1;
+    }
+
+    .scroll-hint i {
+      font-style: normal;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-5px); }
+      60% { transform: translateY(-3px); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .slider-ui {
+        padding: 2rem;
+      }
+
+      .nav-arrow {
+        padding: 1.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem 1.5rem;
+        mix-blend-mode: normal;
+        background: rgba(10, 8, 7, 0.6);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-logo img {
+        height: 28px !important;
+      }
+
+      .nav-cta {
+        font-size: 0.55rem;
+        padding: 0.5rem 1rem;
+      }
+
+      .gallery-container {
+        flex-direction: column;
+      }
+
+      .strip {
+        height: calc(100vh / 10);
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        transform: translateY(60px);
+        opacity: 0;
+      }
+
+      #creative-intro .typewriter-text {
+        font-size: clamp(0.9rem, 5vw, 1.4rem);
+        line-height: 1.5;
+      }
+
+      .strip img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .strip:hover {
+        flex: 1.2;
+      }
+
+      .strip-label {
+        opacity: 0.8 !important;
+        transform: translateY(0) !important;
+        bottom: 25%;
+        left: 1.5rem;
+        transform: translateY(50%) !important;
+        font-size: 0.5rem;
+        letter-spacing: 0.3em;
+      }
+
+      /* Slider adjustments */
+      .slider-ui {
+        padding: 1.5rem;
+      }
+
+      .slider-top-right {
+        align-items: flex-end;
+      }
+
+      .slide-title {
+        font-size: 1.4rem;
+      }
+
+      .slide-category {
+        font-size: 0.55rem;
+        letter-spacing: 0.3em;
+      }
+
+      .thumb-strip {
+        display: none;
+      }
+
+      .nav-arrow {
+        font-size: 1.2rem;
+        padding: 1rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- ══ INTRO ══ -->
-<div id="creative-intro">
-  <h1 class="typewriter-text"><span id="typewriter"></span><span class="typewriter-cursor"></span></h1>
-</div>
-
-<!-- Expansion Layer (Temporary for animation) -->
-<div class="expansion-layer" id="expansionLayer"></div>
-
-<!-- ══ NAV ══ -->
-<nav>
-  <a href="home.html" class="nav-logo">
-    <img src="bm-logo.png" alt="Bertram L. Moore III" style="height:28px; width:auto; filter: invert(1);" />
-  </a>
-  <ul class="nav-links">
-    <li><a href="home.html">Home</a></li>
-    <li><a href="work.html">Work</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="creative.html" style="opacity: 1; font-weight: 600;">Creative</a></li>
-  </ul>
-  <a href="index.html#contact" class="nav-cta">Let's Work</a>
-</nav>
-
-<!-- ══ STRIP GALLERY ══ -->
-<div class="gallery-container" id="gallery">
-  <!-- Strips dynamically injected by JS -->
-</div>
-
-<!-- ══ FULLSCREEN SLIDER ══ -->
-<div class="fullscreen-slider" id="fullscreenSlider">
-  
-  <div id="slidesContainer" style="width:100%; height:100%;">
-    <!-- Slides dynamically injected -->
+  <!-- ══ INTRO ══ -->
+  <div id="creative-intro">
+    <h1 class="typewriter-text"><span id="typewriter"></span><span class="typewriter-cursor"></span></h1>
   </div>
 
-  <div class="slider-ui">
-    <div class="slider-top">
-      <button class="btn-close" id="btnClose">CLOSE</button>
-      <div class="slider-top-right">
-        <p class="slide-category" id="slideCat"></p>
-        <h2 class="slide-title" id="slideTitle"></h2>
+  <!-- Expansion Layer (Temporary for animation) -->
+  <div class="expansion-layer" id="expansionLayer"></div>
+
+  <!-- ══ NAV ══ -->
+  <nav>
+    <div class="nav-logo">
+      <a href="home.html" class="nav-mark-custom" aria-label="Bertram L. Moore III - Home">
+        <img src="bm-logo.png" alt="Bertram L. Moore III Logo" style="height:36px; width:auto; display:block;" />
+      </a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="creative.html" style="opacity: 1; font-weight: 600;">Creative</a></li>
+    </ul>
+    <a href="index.html#contact" class="nav-cta">Let's Work</a>
+  </nav>
+
+  <!-- ══ STRIP GALLERY ══ -->
+  <div class="gallery-container" id="gallery">
+    <div class="scroll-hint" id="scrollHint">
+      Explore Principles
+      <i>↓</i>
+    </div>
+    <!-- Strips dynamically injected by JS -->
+  </div>
+
+  <!-- ══ FULLSCREEN SLIDER ══ -->
+  <div class="fullscreen-slider" id="fullscreenSlider">
+
+    <div id="slidesContainer" style="width:100%; height:100%;">
+      <!-- Slides dynamically injected -->
+    </div>
+
+    <div class="slider-ui">
+      <div class="slider-top">
+        <button class="btn-close" id="btnClose">CLOSE</button>
+        <div class="slider-top-right">
+          <p class="slide-category" id="slideCat"></p>
+          <h2 class="slide-title" id="slideTitle"></h2>
+        </div>
       </div>
-    </div>
 
-    <div class="slider-center">
-      <button class="nav-arrow" id="btnPrev">←</button>
-      <button class="nav-arrow" id="btnNext">→</button>
-    </div>
+      <div class="slider-center">
+        <button class="nav-arrow" id="btnPrev">←</button>
+        <button class="nav-arrow" id="btnNext">→</button>
+      </div>
 
-    <div class="slider-bottom">
-      <div class="slider-counter" id="sliderCounter"></div>
-      <div class="thumb-strip" id="thumbStrip">
-        <!-- Thumbs dynamically injected -->
+      <div class="slider-bottom">
+        <div class="slider-counter" id="sliderCounter"></div>
+        <div class="thumb-strip" id="thumbStrip">
+          <!-- Thumbs dynamically injected -->
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<script>
+  <section class="principles-section">
+    <div class="principles-header">Creative Principles</div>
+    <div class="principles-grid">
+      <div class="principle-card">
+        <h3>Observation</h3>
+        <p>Identifying the core structure and emotional truth before the shutter clicks.</p>
+      </div>
+      <div class="principle-card">
+        <h3>Direction</h3>
+        <p>Orchestrating light, shadow, and movement to tell a deliberate story.</p>
+      </div>
+      <div class="principle-card">
+        <h3>Refinement</h3>
+        <p>Pruning the unnecessary until only the essential systems remain.</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
   const gallery = document.getElementById('gallery');
   const slider = document.getElementById('fullscreenSlider');
   const expansionLayer = document.getElementById('expansionLayer');
@@ -474,15 +777,15 @@ nav {
    * Titles and Categories will update automatically across the site.
    */
   const assets = [
-    { src: 'images/chill_emi.jpg',            title: 'Emi - Dancer',           cat: 'Ballet' },
-    { src: 'images/rachel.jpg',               title: 'Rachel',                cat: 'Visual Artist', themeTitle: 'light', themeCat: 'dark' },
-    { src: 'images/caitlin_surprise.jpg',    title: 'Caitlin - Surprise',  cat: 'Portrait' },
-    { src: 'images/mong_dope.jpg',           title: 'Mong - Dope',           cat: 'Culture' },
-    { src: 'images/joelle.jpg',              title: 'Joelle',                cat: 'Portrait' },
-    { src: 'images/jewel_museum_railing.jpg', title: 'Jewell - Museum',    cat: 'Portrait', themeTitle: 'dark', themeCat: 'dark', pos: '75% center' },
-    { src: 'images/nicole_beauty_gamma.jpg', title: 'Nicole - Model', cat: 'Beauty', pos: '60% center', themeTitle: 'dark', themeCat: 'dark' },
-    { src: 'images/sara_split_small.jpg',    title: 'Sara - Dancer',    cat: 'Ballet' },
-    { src: 'images/high_museum_atl.jpg',     title: 'High Museum',           cat: 'Architecture' }
+    { src: 'images/chill_emi.jpg',            title: 'Emi',                   cat: 'Ballet', pos: '25% center' },
+    { src: 'images/rachel.jpg',               title: 'Rachel',                cat: 'Fitness' },
+    { src: 'images/caitlin_surprise.jpg',    title: 'Caitlin',                cat: 'Portrait' },
+    { src: 'images/jayden_pointeshoes_bench.jpg', title: 'Jayden',                cat: 'Ballet', pos: '50% 5%' },
+    { src: 'images/mong_dope.jpg',           title: 'Mong',                  cat: 'Culture' },
+    { src: 'images/laura_bokeh.jpg',         title: 'Laura',                 cat: 'Portrait' },
+    { src: 'images/jewel_museum_railing.jpg', title: 'Jewell',                cat: 'Ballet', pos: '50% 5%' },
+    { src: 'images/nicole_beauty_gamma.jpg', title: 'Nicole',                cat: 'Portrait', pos: '60% center' },
+    { src: 'images/sara_split_small.jpg',    title: 'Sara',                  cat: 'Ballet' }
   ];
 
   let currentIndex = 0;
@@ -499,6 +802,8 @@ nav {
         <img src="${item.src}" alt="${item.title}" style="object-position: ${item.pos || '50% center'}">
         <span class="strip-label ${item.themeTitle === 'dark' ? 'dark' : ''}">${item.title}</span>
       `;
+      strip.setAttribute('aria-label', `Portrait of ${item.title}`);
+      strip.setAttribute('role', 'button');
       
       // Bind Expansion Click
       strip.addEventListener('click', () => handleStripClick(strip, i));
@@ -526,6 +831,11 @@ nav {
         strip.style.opacity = '1';
       }, 400 + (i * 100));
     });
+
+    // Show scroll hint after all strips appear
+    setTimeout(() => {
+      document.getElementById('scrollHint').classList.add('visible');
+    }, 400 + (assets.length * 100) + 500);
   }
 
   // 2. Build Slides & Thumbs
@@ -657,32 +967,87 @@ nav {
     const introOverlay = document.getElementById('creative-intro');
     let charIndex = 0;
 
+    // Setup AudioContext (once)
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    const audioCtx = new AudioContext();
+
+    // Pre-generate a white noise buffer for the "mechanical snap"
+    const bufferSize = audioCtx.sampleRate * 0.05; // 50ms of noise
+    const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+    const output = noiseBuffer.getChannelData(0);
+    for (let i = 0; i < bufferSize; i++) {
+      output[i] = Math.random() * 2 - 1;
+    }
+
+    function playClack() {
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+
+      // 1. The "Snap" (Noise)
+      const noise = audioCtx.createBufferSource();
+      noise.buffer = noiseBuffer;
+      const noiseFilter = audioCtx.createBiquadFilter();
+      noiseFilter.type = 'highpass';
+      noiseFilter.frequency.setValueAtTime(1000, audioCtx.currentTime);
+      
+      const noiseGain = audioCtx.createGain();
+      noiseGain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+      noiseGain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.03);
+      
+      noise.connect(noiseFilter);
+      noiseFilter.connect(noiseGain);
+      noiseGain.connect(audioCtx.destination);
+
+      // 2. The "Body" (Oscillator)
+      const osc = audioCtx.createOscillator();
+      const oscGain = audioCtx.createGain();
+      // Slight pitch randomization (±10%)
+      const baseFreq = 160 + (Math.random() * 30 - 15);
+      
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(baseFreq, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(baseFreq * 0.4, audioCtx.currentTime + 0.05);
+      
+      oscGain.gain.setValueAtTime(0.03, audioCtx.currentTime);
+      oscGain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
+      
+      osc.connect(oscGain);
+      oscGain.connect(audioCtx.destination);
+
+      noise.start();
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.05);
+    }
+
     function type() {
       if (charIndex < text.length) {
         let currentChar = text.charAt(charIndex);
-        
         container.textContent = text.substring(0, charIndex + 1);
         charIndex++;
 
-        // Handle specific pauses
-        let delay = 100;
-        // Pause after the full ellipsis is typed
+        // Base delay + Random variance (Humanized)
+        let delay = 70 + (Math.random() * 80); 
+        
+        // Character specific pauses
+        if (currentChar === ',') delay = 450;
+        if (currentChar === '\n') delay = 700;
         if (charIndex >= 3 && text.substring(charIndex - 3, charIndex) === "...") {
           delay = 1200; 
         }
 
+        playClack();
         setTimeout(type, delay);
       } else {
         // Done typing, fade out intro and start gallery
         setTimeout(() => {
-          introOverlay.style.transition = 'opacity 1.5s ease, visibility 1.5s';
+          introOverlay.style.transition = 'transform 1.8s cubic-bezier(0.19, 1, 0.22, 1), opacity 1.8s ease';
+          introOverlay.style.transform = 'translateY(-100%)';
           introOverlay.style.opacity = '0';
-          introOverlay.style.visibility = 'hidden';
           
           // Trigger Gallery Animation
           setTimeout(() => {
+            introOverlay.style.visibility = 'hidden';
             initGallery();
-          }, 500);
+          }, 400);
         }, 1500);
       }
     }
@@ -690,7 +1055,8 @@ nav {
     // Start typing after a short initial delay
     setTimeout(type, 800);
   }
-</script>
+  </script>
 
 </body>
+
 </html>
