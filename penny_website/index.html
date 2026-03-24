@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+   <title>Anfernee “Penny” Hardaway</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/intro.css">
+  <!-- defer to avoid DOM loading issues -->
+  <script src="js/main.js?v=3" defer></script>
+  <script>
+    // Global error handler for debugging
+    window.onerror = function(msg, url, line) {
+      const errorMsg = "Error: " + msg + "\nURL: " + url + "\nLine: " + line;
+      console.error(errorMsg);
+      // Fallback: if JS fails, show a way to hide the overlay
+      setTimeout(() => {
+        const skip = document.getElementById('failsafeSkip');
+        if (skip) skip.style.display = 'block';
+      }, 2000);
+    };
+
+    // Generic failsafe: show skip button after 5 seconds regardless of errors
+    setTimeout(() => {
+        const skip = document.getElementById('failsafeSkip');
+        if (skip) skip.style.display = 'block';
+    }, 5000);
+  </script>
+</head>
+<body class="pinstripe-bg">
+
+  <!-- Intro Overlay -->
+  <div id="introOverlay">
+    <img id="introFlashContent" src="" alt="Penny Flash">
+    <div id="introStat"></div>
+    <h2>Penny Hardaway</h2>
+    <div id="introButtons">
+      <button id="startIntroBtn">Start Tip-Off</button>
+      <button id="failsafeSkip" style="display:none; margin-top: 1rem; background: transparent; border: 1px solid white; color: white; padding: 0.5rem 1rem; cursor: pointer;">Skip Intro (Failsafe)</button>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-layout">
+      <div class="brand">
+        <h1><span>Penny</span> Hardaway</h1>
+        <p class="tagline">90s Icon &bull; NBA Legend &bull; Coach</p>
+
+      </div>
+
+      <div class="header-controls">
+        <nav class="main-nav">
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#career">Career</a></li>
+            <li><a href="#shoes">Signature Shoes</a></li>
+            <li><a href="#game">Guessing Game</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle light or dark mode">
+          🌙 Dark Mode
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="hero-text">
+          <h2>“Penny” Hardaway: Skill, flair, and basketball IQ.</h2>
+          <p>
+            Anfernee Deon “Penny” Hardaway became one of the most exciting guards of the 90s,
+            pairing size and playmaking with a calm Memphis swagger — and later taking that
+            mindset to the sidelines as a head coach.
+          </p>
+          <a href="#career" class="btn-primary">Explore Penny’s Journey</a>
+        </div>
+        <div class="hero-image">
+          <img src="img/penny-hero.jpg" alt="Anfernee Penny Hardaway in Orlando Magic uniform">
+        </div>
+      </div>
+    </section>
+
+    <!-- CAREER (PREPARING FOR TIMELINE) -->
+    <section id="career" class="section section-alt reveal">
+      <div class="container">
+        <h2 class="reveal">Career Timeline</h2>
+        <div id="timelineContainer" class="timeline-container">
+          <!-- JS will inject timeline here -->
+          <div class="cards">
+            <article class="card glass">
+              <img src="img/penny-orlando.jpg" alt="Penny Hardaway with the Orlando Magic">
+              <h3>Orlando Magic Era</h3>
+              <p>
+                Drafted in 1993, Penny quickly became one of the league’s brightest stars, forming
+                a dynamic duo with Shaquille O’Neal.
+              </p>
+            </article>
+            <article class="card glass">
+              <img src="img/penny-phoenix.jpg" alt="Penny Hardaway in Phoenix Suns uniform">
+              <h3>Veteran Presence</h3>
+              <p>
+                A savvy playmaker with the Suns, Knicks, and Heat, proving his basketball IQ remained elite.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- SIGNATURE SHOES (PRODUCT DISPLAY) -->
+    <section id="shoes" class="section reveal">
+      <div class="container">
+        <h2 class="reveal">Signature Shoes</h2>
+        <p>
+          Select a shoe to see details. Only one shoe is shown at a time.
+        </p>
+
+        <div class="product-layout">
+          <aside class="product-controls" aria-label="Penny Hardaway signature shoes">
+            <button class="product-btn active" data-shoe="foamposite">Air Foamposite One</button>
+            <button class="product-btn" data-shoe="airpenny1">Nike Air Penny 1</button>
+            <button class="product-btn" data-shoe="airpenny2">Nike Air Penny 2</button>
+            <button class="product-btn" data-shoe="foampositepro">Air Foamposite One Pro</button>
+          </aside>
+
+
+          <article class="product-display" aria-live="polite">
+            <img id="shoeImage" src="img/shoe-foams.jpg" alt="Penny Hardaway shoe">
+            <h3 id="shoeDisplayName">Air Foamposite One</h3>
+            <p id="shoeDisplayDesc">
+              The Nike Air Foamposite One "Royal", originally released in 1997 for $180, revolutionized basketball footwear with its molded polyurethane shell, designed by Eric Avar. Famously adopted by Penny Hardaway, this "Dark Neon Royal" shoe was known for its futuristic, beetle-shell look, full-length Zoom Air cushioning, and carbon fiber shanks.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- GUESSING GAME -->
+    <section id="game" class="section section-alt reveal">
+      <div class="container">
+        <h2 class="reveal">Guess Like Penny</h2>
+        <p>
+          Can you guess Penny Hardaway's favorite number? I bet you can't. Ok here's a hint, It's between 1-10. Good Luck!
+        </p>
+        <form id="gameForm" class="game-form">
+          <label for="userGuess">Enter a number (1–10):</label>
+          <input type="number" id="userGuess" name="userGuess" min="1" max="10">
+          <button type="submit" class="btn-secondary">Submit Guess</button>
+        </form>
+        <p id="gameResult" class="game-result" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section id="contact" class="section reveal">
+      <div class="container">
+        <h2 class="reveal">Contact / Booking</h2>
+        <p>
+         Do you like Penny Hardaway too? (I mean who doesn't) Leave your information, connect with us!
+        </p>
+
+        <form id="contactForm" novalidate>
+          <div class="form-row">
+            <label for="fullName">Full Name<span class="required">*</span></label>
+            <input type="text" id="fullName" name="fullName">
+            <span class="error-message" id="nameError"></span>
+          </div>
+
+          <div class="form-row two-column">
+            <div>
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone">
+              <span class="error-message" id="phoneError"></span>
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email">
+              <span class="error-message" id="emailError"></span>
+            </div>
+          </div>
+
+          <fieldset class="form-row">
+            <legend>How should we contact you?<span class="required">*</span></legend>
+            <label>
+              <input type="radio" name="preferredContact" value="phone">
+              Phone
+            </label>
+            <label>
+              <input type="radio" name="preferredContact" value="email">
+              Email
+            </label>
+            <span class="error-message" id="contactChoiceError"></span>
+          </fieldset>
+
+          <div class="form-row">
+            <label for="comments">Comments<span class="required">*</span></label>
+            <textarea id="comments" name="comments" rows="4"></textarea>
+            <span class="error-message" id="commentsError"></span>
+          </div>
+
+          <button type="submit" class="btn-primary">Submit</button>
+        </form>
+
+        <div id="thankYouMessage" class="thank-you" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="yearSpan"></span> Penny Hardaway Fan Project. Built for a JavaScript course.</p>
+      <p class="footer-small">
+        This is an educational site. Replace all images and copy with assets you have rights to use.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

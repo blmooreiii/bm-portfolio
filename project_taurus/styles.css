@@ -1,0 +1,338 @@
+:root {
+    --bg-dark: #000000;
+    --bg-card: #121212;
+    --bg-grail: #4D3A42; /* Dark muted burgundy/grape as in wireframe */
+    --accent-teal: #00B1E1;
+    --text-primary: #FFFFFF;
+    --text-secondary: #8E8E93;
+    --text-muted: rgba(255, 255, 255, 0.4);
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+.app-container {
+    max-width: 480px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #1A1A1A 0%, #000000 100%);
+    position: relative;
+    padding-bottom: 100px; /* Space for bottom nav */
+}
+
+/* Header */
+.app-header {
+    padding: 2.5rem 1.5rem 1.5rem;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--text-primary);
+}
+
+.brand span {
+    color: var(--accent-teal);
+}
+
+.status-indicator {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--accent-teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.status-indicator .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--accent-teal);
+    box-shadow: 0 0 10px var(--accent-teal);
+}
+
+/* Main Content */
+.dashboard {
+    padding: 0 1.5rem;
+}
+
+/* Greeting */
+.greeting {
+    margin-bottom: 2rem;
+    padding: 0.5rem 0;
+}
+
+.kicker {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.user-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+}
+
+.name-underline {
+    width: 40px;
+    height: 3px;
+    background-color: #3D2B33; /* Darker accent */
+    margin-top: 0.5rem;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-card {
+    background-color: var(--bg-card);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid var(--glass-border);
+    transition: transform 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.stat-value {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.stat-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+}
+
+/* Grail Card */
+.grail-section {
+    margin-bottom: 2rem;
+}
+
+.grail-card {
+    background-color: var(--bg-grail);
+    border-radius: 16px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 80px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.grail-info {
+    z-index: 2;
+}
+
+.grail-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.6);
+    display: block;
+    margin-bottom: 0.1rem;
+}
+
+.grail-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.grail-icon .trophy {
+    font-size: 1.5rem;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+}
+
+.grail-image-preview {
+    position: absolute;
+    right: -20px;
+    top: -10px;
+    width: 120px;
+    opacity: 0.4;
+    transform: rotate(-15deg);
+    pointer-events: none;
+}
+
+.grail-image-preview img {
+    width: 100%;
+}
+
+/* Recently Added */
+.recently-added {
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+}
+
+.sneaker-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.sneaker-item {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: opacity 0.2s;
+}
+
+.sneaker-item:hover {
+    opacity: 0.8;
+}
+
+.sneaker-thumb {
+    width: 60px;
+    height: 60px;
+    background-color: #E8E8E8;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.sneaker-thumb img {
+    width: 90%;
+    height: auto;
+    object-fit: contain;
+}
+
+.sneaker-info {
+    flex: 1;
+}
+
+.sneaker-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.15rem;
+}
+
+.sneaker-meta {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.sneaker-price {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+/* Bottom Nav */
+.bottom-nav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(245, 241, 232, 0.02);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem 0 2.5rem;
+    z-index: 100;
+}
+
+.bottom-nav ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0 1.5rem;
+}
+
+.nav-item {
+    text-decoration: none;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    transition: color 0.2s;
+}
+
+.nav-item:hover, .nav-item.active {
+    color: var(--text-primary);
+}
+
+.nav-item.active {
+    position: relative;
+}
+
+.nav-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #3D2B33;
+}
+
+/* Responsive Fixes */
+@media (max-width: 380px) {
+    .user-name {
+        font-size: 2rem;
+    }
+    .stat-value {
+        font-size: 1.5rem;
+    }
+}

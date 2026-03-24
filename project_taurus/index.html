@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Taurus — Sneaker Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-inner">
+                <h1 class="brand">PROJECT <span>TAURUS</span></h1>
+                <div class="status-indicator">
+                    <div class="dot"></div>
+                </div>
+            </div>
+        </header>
+
+        <main class="dashboard">
+            <!-- Greeting -->
+            <section class="greeting">
+                <span class="kicker">Good Morning</span>
+                <h2 class="user-name">Bertram</h2>
+                <div class="name-underline"></div>
+            </section>
+
+            <!-- Stats Grid -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-value">24</span>
+                    <span class="stat-label">PAIRS</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value">$340</span>
+                    <span class="stat-label">AVG PRICE</span>
+                </div>
+            </section>
+
+            <!-- Grail Section -->
+            <section class="grail-section">
+                <div class="grail-card">
+                    <div class="grail-info">
+                        <span class="grail-label">GRAIL</span>
+                        <h3 class="grail-name">OW Jordan 1</h3>
+                    </div>
+                    <div class="grail-icon">
+                        <span class="trophy">🏆</span>
+                    </div>
+                    <div class="grail-image-preview">
+                        <img src="img/ow_jordan_1.png" alt="OW Jordan 1">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recently Added -->
+            <section class="recently-added">
+                <h3 class="section-title">RECENTLY ADDED</h3>
+                <div class="sneaker-list">
+                    <!-- Item 1 -->
+                    <div class="sneaker-item">
+                        <div class="sneaker-thumb">
+                            <img src="img/air_force_1.png" alt="Air Force 1">
+                        </div>
+                        <div class="sneaker-info">
+                            <h4 class="sneaker-name">Air Force 1</h4>
+                            <p class="sneaker-meta">Nike • Sz 11</p>
+                        </div>
+                        <div class="sneaker-price">$120</div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="sneaker-item">
+                        <div class="sneaker-thumb">
+                            <img src="img/nmd_r1.png" alt="NMD R1">
+                        </div>
+                        <div class="sneaker-info">
+                            <h4 class="sneaker-name">NMD R1</h4>
+                            <p class="sneaker-meta">Adidas • Sz 10.5</p>
+                        </div>
+                        <div class="sneaker-price">$180</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <ul>
+                <li><a href="#" class="nav-item active">HOME</a></li>
+                <li><a href="#" class="nav-item">KICKS</a></li>
+                <li><a href="#" class="nav-item">ADD</a></li>
+                <li><a href="#" class="nav-item">PROFILE</a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>
