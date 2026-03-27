@@ -29,7 +29,7 @@ All notable changes to the Bertram L. Moore III Portfolio project will be docume
 - **About Stats**: Updated fact cards to: 8+ Years in Project Management · 4 Case Studies · 3 Products in Development.
 - **About Portrait**: Wired `portrait-bertram.jpg` into the portrait circle on both `home.html` and `about.html`; added GPU rendering hints (`image-rendering`, `transform: translateZ(0)`, `backface-visibility`) for sharpness.
 - **PMO Governance Page**: Replaced all Lorem ipsum on `case-pmo.html` with real governance content — intro paragraphs, five numbered pillar cards, and a tools/frameworks list. Hero placeholder replaced with `governance-lifecycle.png`.
-- **Project Anubis Icon**: Changed Creative stat card icon from 🎙️ to 🌍 across `home.html` to better reflect the civic/community nature of the project.
+- **Bastet Icon**: Changed Creative stat card icon from 🎙️ to 🌍 across `home.html` to better reflect the civic/community nature of the project.
 - **Experience Section**: Added "The Journey So Far" career/education section to `about.html` with streamlined entries for J&J (Manager of PMs), ATCS (Founder/Creative Director), Verizon (Sr. Manager Business Strategy), and ASU (B.S. GIT).
 - **Filter Tabs**: Creative page filter buttons apply opacity fade to non-matching cells without removing them from the grid.
 
@@ -48,8 +48,8 @@ All notable changes to the Bertram L. Moore III Portfolio project will be docume
 ### Changed
 - **Navigation Cleanup**: Removed redundant "Contact" links from the header navigation site-wide to focus on the primary "Let's Work" call-to-action.
 - **Hero Title Refinement**: Increased `line-height` and added vertical padding to `.hero-title` to prevent character descenders (like "y" in "Systems") from being clipped.
-- **Link Standardization**: Updated all `mailto:` links to `bertram@bertrammoore.com` and fixed the Anubis footer link to point to the case study rather than YouTube.
-- **Case Study Sequencing**: Corrected the "Next Project" logic to ensure a perfect loop through the work gallery (Melo → Anubis → Taurus → PMO → Melo).
+- **Link Standardization**: Updated all `mailto:` links to `bertram@bertrammoore.com` and fixed the Bastet footer link to point to the case study rather than YouTube.
+- **Case Study Sequencing**: Corrected the "Next Project" logic to ensure a perfect loop through the work gallery (Melo → Bastet → The Collection → PMO → Melo).
 
 ### Fixed
 - **Header Styles**: Restored missing navigation CSS on `case-melo.html` that caused layout breakage.

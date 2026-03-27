@@ -11,8 +11,8 @@ This portfolio is designed with a "cinematic high-fidelity" aesthetic, featuring
 - **Cinematic Hero Sequence**: An immersive entrance animation using early-loading assets and optimized "elevator door" transitions.
 - **Deep-Dive Case Studies**: Custom-built pages for major projects:
   - **Stay Me7o**: A sportswear campaign creative direction project.
-  - **Project Anubis**: A civic interaction design initiative.
-  - **Project Taurus**: A personal sneaker collection management application.
+  - **Bastet**: A civic interaction design initiative.
+  - **The Collection**: A personal sneaker collection management application.
   - **PMO Governance**: Strategic project management and delivery structure.
 - **Dynamic Blog Integration**: Real-time fetching of the latest 3 posts from [bdotmdev.wordpress.com](https://bdotmdev.wordpress.com) via the WordPress REST API.
 - **Responsive Design**: Audited and optimized for desktop, tablet, and mobile viewing.
