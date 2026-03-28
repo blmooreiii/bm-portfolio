@@ -1702,6 +1702,48 @@
     .blog-read {
       color: var(--eggplant);
     }
+    /* --- Interface Gallery --- */
+    .interface-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 900px;
+      margin: 2rem auto;
+    }
+
+    .interface-item {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(26, 21, 20, 0.12);
+      border: 1px solid rgba(26, 21, 20, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .interface-item:hover {
+      transform: translateY(-4px);
+    }
+
+    .interface-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @media (max-width: 850px) {
+      .interface-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        padding: 0 1rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .interface-grid {
+        grid-template-columns: 1fr;
+        max-width: 320px;
+        gap: 1.5rem;
+      }
+    }
   </style>
 </head>
 
@@ -1840,7 +1882,7 @@
         <li>• Location used once, on-device only, never transmitted or stored</li>
         <li>• Quick Exit closes the app and clears it from recent apps in under 120ms</li>
         <li>• App icon designed as a pixel/16-bit Bastet mark — passes the glance test as a game</li>
-        <li>• 21 verified South Carolina shelters with callForAddress pattern</li>
+        <li>• 22 verified South Carolina shelters with callForAddress pattern</li>
       </ul>
     </div>
 
@@ -1865,7 +1907,7 @@
         <h4
           style="font-family:'Space Grotesk',sans-serif;font-size:0.9rem;text-transform:uppercase;color:var(--blue);margin-bottom:0.5rem;">
           Milestone 2 — Data Hardening</h4>
-        <p style="font-size:0.9rem;color:var(--muted);">Schema v2.1 (21 verified SC shelters), callForAddress pattern
+        <p style="font-size:0.9rem;color:var(--muted);">Schema v2.1 (22 verified SC shelters), callForAddress pattern
           implementation, and runtime validation.</p>
       </div>
       <div style="padding:1.5rem; background:var(--surface); border:1px solid var(--rule); border-radius:12px;">
@@ -1915,8 +1957,16 @@
       <h2 style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;letter-spacing:-0.02em;margin-bottom:1.5rem;">Interface Design</h2>
       <p style="margin-bottom:2rem;color:var(--muted);max-width:800px;">The Bastet interface prioritizes clear, high-contrast actions and a "Quick Exit" safety valve available on every screen.</p>
       
-      <div style="width:100%; border-radius:16px; overflow:hidden; border:1px solid var(--rule); background:#fdfdfd; padding:2rem;">
-        <img src="images/bastet-screens.png" alt="Bastet App Interface Screenshots" style="width:100%; height:auto; display:block;" />
+      <div class="interface-grid">
+        <div class="interface-item">
+          <img src="images/bastet-1.png" alt="Bastet App Interface Home" />
+        </div>
+        <div class="interface-item">
+          <img src="images/bastet-2.png" alt="Bastet App Interface Support" />
+        </div>
+        <div class="interface-item">
+          <img src="images/bastet-3.png" alt="Bastet App Interface Shelters" />
+        </div>
       </div>
     </section>
   </article>
@@ -1927,8 +1977,7 @@
       style="font-family:'Space Grotesk',sans-serif;font-size:0.58rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:1rem;">Next
       Project</span>
     <a href="case-taurus.html"
-      style="font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:600;letter-spacing:-0.02em;color:var(--eggplant);text-decoration:none;">Project
-      Taurus Case Study →</a>
+      style="font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:600;letter-spacing:-0.02em;color:var(--eggplant);text-decoration:none;">The Collection Case Study →</a>
   </div>
 
   <!-- ABOUT -->

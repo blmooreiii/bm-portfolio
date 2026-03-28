@@ -1983,6 +1983,95 @@
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(97, 64, 81, 0.25);
     }
+
+    /* ══════════════════════════════════════
+       ALBUM GALLERY (Personality Update)
+    ══════════════════════════════════════ */
+    .album-gallery-sticky {
+      position: sticky;
+      top: 25vh;
+      z-index: 100;
+      pointer-events: none;
+      width: 100%;
+      height: clamp(140px, 12vw, 200px);
+      display: flex;
+      justify-content: center;
+      margin-top: 4rem;
+    }
+
+    /* Desktop Layout: Dedicated Sidebar Column */
+    @media (min-width: 1200px) {
+      body {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        background: var(--bg);
+      }
+      
+      nav, .hero, .page-content, footer {
+        grid-column: 2;
+      }
+
+      .album-gallery-sticky {
+        grid-column: 1;
+        grid-row: 3; /* Positioned relative to page-content */
+        height: 100vh;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0;
+        padding-left: 2rem;
+      }
+      
+      .album-cover-wrap {
+        width: 200px;
+        height: 200px;
+      }
+    }
+
+    /* 1100px - 1199px: Hide or reposition to avoid title overlap */
+    @media (min-width: 1100px) and (max-width: 1199px) {
+       .album-gallery-sticky {
+         display: none; /* Safer than overlapping the hero title */
+       }
+    }
+
+    .album-cover-wrap {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      perspective: 1000px;
+    }
+
+    .album-cover {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      opacity: 0;
+      transform: scale(0.8) rotateY(-15deg);
+      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                  transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .album-cover.active {
+      opacity: 1;
+      transform: scale(1) rotateY(0);
+    }
+
+    /* Hide on mobile to keep things focused */
+    @media (max-width: 1099px) {
+      .album-gallery-sticky {
+        display: none;
+      }
+      .page-content {
+        padding-left: 0 !important;
+      }
+    }
   </style>
 </head>
 
@@ -2100,6 +2189,16 @@
 
   <!-- ══ PAGE CONTENT (Concept 4 flow) ══ -->
   <div class="page-content">
+
+    <!-- STICKY PERSONALITY GALLERY -->
+    <div class="album-gallery-sticky" aria-hidden="true">
+      <div class="album-cover-wrap">
+        <img src="images/album-structure.png" alt="" class="album-cover active" data-section="hero" />
+        <img src="images/album-bastet.png" alt="" class="album-cover" data-section="projects" />
+        <img src="images/album-swish.png" alt="" class="album-cover" data-section="about" />
+        <img src="images/album-structure.png" alt="" class="album-cover" data-section="skills" />
+      </div>
+    </div>
 
     <!-- DIVIDER -->
     <div style="width:100%;border-top:2px solid rgba(26,21,20,0.15);background:var(--bg-warm);padding:0;margin:0;">
@@ -2365,6 +2464,32 @@
       }
     }
     loadBlogPosts();
+
+  // ── ALBUM GALLERY OBSERVER ──
+  const galleryCovers = document.querySelectorAll('.album-cover');
+  const sections = document.querySelectorAll('section.projects, .about, .skills, .blog');
+
+  const observerOptions = {
+    threshold: 0.3
+  };
+
+  const galleryObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        let sectionName = '';
+        if (entry.target.classList.contains('projects')) sectionName = 'projects';
+        else if (entry.target.classList.contains('about')) sectionName = 'about';
+        else if (entry.target.classList.contains('skills')) sectionName = 'skills';
+        else if (entry.target.classList.contains('blog')) sectionName = 'blog';
+
+        galleryCovers.forEach(cover => {
+          cover.classList.toggle('active', cover.dataset.section === sectionName);
+        });
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach(s => galleryObserver.observe(s));
 
     // Mobile Menu Toggle
     const menuToggle = document.getElementById('menuToggle');
