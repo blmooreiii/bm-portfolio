@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bertramlmoore.com/sitemap.xml
+Sitemap: https://bertrammoore.com/sitemap.xml
